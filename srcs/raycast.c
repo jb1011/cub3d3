@@ -24,17 +24,37 @@ void    init_t_ray(my_struct_t *s)
 	s->posy = (double)s->spawn.x;
 	s->sp.zbuffer = (double *)malloc(sizeof(double) * s->width);
 
-	s->colortab = malloc(sizeof(int *) * s->width);
-	int i = 0;
-	while (i < s->width)
-	{
-		s->colortab[i] = malloc(sizeof(int) * s->width);
-		i++;
-	}
+	init_colortab(s);
 
 	s->lines = malloc(sizeof(int *) * s->width + 1);
 	s->starts = malloc(sizeof(int *) * s->width + 1);
 	s->sidehits = malloc(sizeof(int *) * s->width + 1);
+}
+
+void	init_colortab(my_struct_t *s)
+{
+	int i;
+
+	i = 0;
+	if (s->width >= s->height)
+	{
+		s->colortab = malloc(sizeof(int *) * s->width + 1);
+		while (i < s->width)
+		{
+			s->colortab[i] = malloc(sizeof(int) * s->width);
+			i++;
+		}
+	}
+	else
+	{
+		s->colortab = malloc(sizeof(int *) * s->height + 1);
+		while (i < s->height)
+		{
+			s->colortab[i] = malloc(sizeof(int) * s->height);
+			i++;
+		}
+	}
+	
 }
 
 void    init_dir(my_struct_t *s)
@@ -173,8 +193,8 @@ int	ft_raycaster(my_struct_t *s)
 			s->t.color = s->texture[s->tnum].addr[s->t.texy * s->texture[s->tnum].line_height / 4 + s->t.texx];
 			if (s->side == 1)
 				s->t.color = (s->t.color >> 1) & 8355711;
-			g++;
 			s->colortab[j][s->rayx] = s->t.color;
+			g++;
 			j++;
 		}
 		

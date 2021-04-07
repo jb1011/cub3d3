@@ -305,4 +305,5 @@ void	ft_count_2(my_struct_t *s);
 int		ft_init_sprite(my_struct_t *s);
 void	ft_init_sprite2(my_struct_t *s, int i, int j, int v);
 int		ft_exit(my_struct_t *s);
+void	init_colortab(my_struct_t *s);
 #endif

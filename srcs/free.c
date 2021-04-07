@@ -86,10 +86,21 @@ void	ft_free_double_pointer_int(my_struct_t *s)
 	int n;
 	
 	n = 0;
-	while (n < s->width)
+	if (s->width >= s->height)
 	{
-		free(s->colortab[n]);
-		n++;
+		while (n < s->width)
+		{
+			free(s->colortab[n]);
+			n++;
+		}
+	}
+	else
+	{
+		while (n < s->height)
+		{
+			free(s->colortab[n]);
+			n++;
+		}
 	}
 	free(s->colortab);
 	s->colortab = NULL;

@@ -78,7 +78,7 @@ void	ft_draw_spr(my_struct_t *s, int y, int texx, int stripe)
 	{
 		d = (y) * 256 - s->height * 128 + s->sp.spriteheight * 128;
 		texy = ((d * s->texture[4].height) / s->sp.spriteheight) / 256;
-		if (s->texture[4].addr[texy * s->texture[4].line_height / 4 + texx] != -16777216)
+		if (s->texture[4].addr[texy * s->texture[4].line_height / 4 + texx] != 0)
 		{
 			s->img_data[y * s->size_line / 4 + stripe] =
 				s->texture[4].addr[texy * s->texture[4].line_height / 4 + texx];

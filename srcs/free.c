@@ -72,10 +72,7 @@ void	ft_free_s(my_struct_t *s)
 	if (s->map)
 		ft_free_double_pointer(s->map);
 	if (s->colortab)
-	{
-		ft_putstr_fd("h",0);
 		ft_free_double_pointer_int(s);
-	}
 	if (s->sidehits)
 		free(s->sidehits);
 	if (s->starts)

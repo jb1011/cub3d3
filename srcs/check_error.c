@@ -97,7 +97,7 @@ void	ft_floor_check(t_check_error_t *checker, my_struct_t *my_struct)
 		my_struct->f_g = ft_atoi(checker->tab2[1]);
 		my_struct->f_b = ft_atoi(checker->tab2[2]);
 	}
-	if (is_rgb(my_struct->f_r) == 1 && is_rgb(my_struct->f_g == 1) &&
+	if (is_rgb(my_struct->f_r) == 1 && is_rgb(my_struct->f_g) == 1 &&
 			is_rgb(my_struct->f_b) == 1)
 		checker->result += 1;
 	else
@@ -127,7 +127,7 @@ void	ft_ceiling_check(t_check_error_t *checker, my_struct_t *my_struct)
 		my_struct->c_g = ft_atoi(checker->tab3[1]);
 		my_struct->c_b = ft_atoi(checker->tab3[2]);
 	}
-	if (is_rgb(my_struct->c_r) == 1 && is_rgb(my_struct->c_g == 1) &&
+	if (is_rgb(my_struct->c_r) == 1 && is_rgb(my_struct->c_g) == 1 &&
 		is_rgb(my_struct->c_b) == 1)
 		checker->result += 1;
 	else

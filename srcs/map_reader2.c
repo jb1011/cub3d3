@@ -9,6 +9,17 @@ void	ft_map_line_check(my_struct_t *my_struct, t_check_map_t *map_checker)
 	j = 0;
 	while (j < my_struct->last_columns)
 	{
+		k = 0;
+		if (my_struct->map[j][k] != '1' && my_struct->map[j][k] != ' ')
+		{
+			map_checker->result_map--;
+			my_struct->result_map--;
+		}
+		j++;
+	}
+	j = 0;
+	while (j < my_struct->last_columns)
+	{
 		k = ft_strlen(my_struct->map[j]) - 1;
 		if (my_struct->map[j][k] != '1' && my_struct->map[j][k] != ' ')
 		{
@@ -19,6 +30,8 @@ void	ft_map_line_check(my_struct_t *my_struct, t_check_map_t *map_checker)
 	}
 	if (my_struct->result_map == 0)
 		ft_map_check_validity(my_struct);
+	else
+		ft_putstr_fd("Error\nwith beginning or end of map", 0);
 }
 
 void	ft_map_check_validity(my_struct_t *my_struct)

@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jdemenet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/07 14:03:49 by jdemenet          #+#    #+#             */
+/*   Updated: 2021/04/07 14:03:53 by jdemenet         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../Include/cub3d.h"
 
-void    ft_free_check_error(t_check_error_t *checker)
+void	ft_free_check_error(t_check_error_t *checker)
 {
 	if (checker->f)
 		free(checker->f);
@@ -20,6 +32,11 @@ void    ft_free_check_error(t_check_error_t *checker)
 		free(checker->s);
 	if (checker->tab)
 		ft_free_double_pointer(checker->tab);
+	ft_freee(checker);
+}
+
+void	ft_freee(t_check_error_t *checker)
+{
 	if (checker->tab2)
 		ft_free_double_pointer(checker->tab2);
 	if (checker->tab3)
@@ -71,20 +88,13 @@ void	ft_free_s(my_struct_t *s)
 		free(s->sp.dist);
 	if (s->map)
 		ft_free_double_pointer(s->map);
-	if (s->colortab)
-		ft_free_double_pointer_int(s);
-	if (s->sidehits)
-		free(s->sidehits);
-	if (s->starts)
-		free(s->starts);
-	if (s->lines)
-		free(s->lines);
+	ft_freee22(s);
 }
 
 void	ft_free_double_pointer_int(my_struct_t *s)
 {
 	int n;
-	
+
 	n = 0;
 	if (s->width >= s->height)
 	{

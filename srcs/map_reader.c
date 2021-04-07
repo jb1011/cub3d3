@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   map_reader.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdemenet@student.42.fr <jdemenet>          +#+  +:+       +#+        */
+/*   By: jdemenet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/16 13:08:31 by jdemenet          #+#    #+#             */
-/*   Updated: 2021/03/31 14:51:18 by jdemenet@st      ###   ########.fr       */
+/*   Created: 2021/04/07 14:05:39 by jdemenet          #+#    #+#             */
+/*   Updated: 2021/04/07 14:05:41 by jdemenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../Include/cub3d.h"
 

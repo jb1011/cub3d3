@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdemenet@student.42.fr <jdemenet>          +#+  +:+       +#+        */
+/*   By: jdemenet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/18 13:24:02 by jdemenet          #+#    #+#             */
-/*   Updated: 2021/03/16 14:40:30 by jdemenet@st      ###   ########.fr       */
+/*   Created: 2021/04/07 14:03:33 by jdemenet          #+#    #+#             */
+/*   Updated: 2021/04/07 14:03:36 by jdemenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,8 @@ void	ft_check_error(my_struct_t *my_struct, t_check_error_t *checker, int fd)
 			checker->ea = ft_strdup(str);
 		else if (str[0] == 'S')
 			checker->s = ft_strdup(str);
-		else if (str[0] == 'F')
-			checker->f = ft_strdup(str);
-		else if (str[0] == 'C')
-			checker->c = ft_strdup(str);
-		else if (str[0] == 0)
-			checker->count--;
-		else if (str[0] == '1' || str[0] == ' ')
+		check_error_util(str, checker);
+		if (str[0] == '1' || str[0] == ' ')
 			break ;
 		checker->count++;
 		free(str);
@@ -106,15 +101,9 @@ void	ft_floor_check(t_check_error_t *checker, my_struct_t *my_struct)
 
 void	ft_ceiling_check(t_check_error_t *checker, my_struct_t *my_struct)
 {
-	char *tmp;
-
 	if (checker->c[0] == 'C')
 	{
-		tmp = ft_strtrim(checker->c, "C ");
-		free(checker->c);
-		checker->c = ft_strdup(tmp);
-		free(tmp);
-		checker->tab3 = ft_split(checker->c, ',');
+		ft_ceiling_util(checker);
 	}
 	if ((ft_count(checker->c, ',')) != 3)
 	{

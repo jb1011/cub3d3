@@ -8,7 +8,8 @@ SRCS = srcs/get_next_line.c srcs/get_next_line_utils.c \
 srcs/map_reader.c srcs/utils.c srcs/check_error.c \
 srcs/utils2.c srcs/ft_check_error_2.c srcs/map_reader2.c \
 srcs/map_reader3.c srcs/init_window.c srcs/free.c \
-srcs/raycast.c srcs/texture.c srcs/sprite.c
+srcs/raycast.c srcs/texture.c srcs/sprite.c \
+srcs/utils3.c
 
 PATH_SRCS = ./
 

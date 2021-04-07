@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdemenet@student.42.fr <jdemenet>          +#+  +:+       +#+        */
+/*   By: jdemenet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/09 10:33:09 by jdemenet          #+#    #+#             */
-/*   Updated: 2021/03/04 14:20:07 by jdemenet@st      ###   ########.fr       */
+/*   Created: 2021/04/07 14:04:51 by jdemenet          #+#    #+#             */
+/*   Updated: 2021/04/07 14:04:54 by jdemenet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../Include/cub3d.h"
 

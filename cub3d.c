@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jdemenet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/07 14:02:26 by jdemenet          #+#    #+#             */
+/*   Updated: 2021/04/07 14:02:40 by jdemenet         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Include/cub3d.h"
 
-void ft_init_my_struct(my_struct_t *my_struct)
+void	ft_init_my_struct(my_struct_t *my_struct)
 {
 	my_struct->x = 0;
 	my_struct->y = 0;
@@ -21,6 +33,11 @@ void ft_init_my_struct(my_struct_t *my_struct)
 	my_struct->result_map = 0;
 	my_struct->sizex = 0;
 	my_struct->sizey = 0;
+	ft_init_2(my_struct);
+}
+
+void	ft_init_2(my_struct_t *my_struct)
+{
 	my_struct->sp.spriteheight = 0;
 	my_struct->sp.spritescreenx = 0;
 	my_struct->sp.drawstartx = 0;
@@ -45,7 +62,7 @@ void ft_init_my_struct(my_struct_t *my_struct)
 	my_struct->colortab = 0;
 }
 
-void ft_init_struct_check_error(t_check_error_t *check_error)
+void	ft_init_struct_check_error(t_check_error_t *check_error)
 {
 	check_error->result = 0;
 	check_error->count = 0;
@@ -67,10 +84,10 @@ void ft_init_struct_check_error(t_check_error_t *check_error)
 	check_error->tab8 = NULL;
 }
 
-int main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-	my_struct_t my_struct;
-	t_check_error_t checker;
+	my_struct_t		my_struct;
+	t_check_error_t	checker;
 
 	if (argc > 3 || argc < 2)
 		printf("Error\nwrong number of argument\n");

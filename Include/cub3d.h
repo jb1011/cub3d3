@@ -306,4 +306,9 @@ int		ft_init_sprite(my_struct_t *s);
 void	ft_init_sprite2(my_struct_t *s, int i, int j, int v);
 int		ft_exit(my_struct_t *s);
 void	init_colortab(my_struct_t *s);
+void	ft_init_2(my_struct_t *my_struct);
+void	ft_ceiling_util(t_check_error_t *checker);
+void	check_error_util(char *str, t_check_error_t *checker);
+void	ft_freee(t_check_error_t *checker);
+void	ft_freee22(my_struct_t *s);
 #endif

@@ -15,7 +15,6 @@ void	ft_dis_order2(my_struct_t *s)
 	}
 }
 
-
 void	ft_dis_order(my_struct_t *s)
 {
 	int			i;

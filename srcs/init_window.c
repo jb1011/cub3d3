@@ -64,39 +64,31 @@ int	deal_key(int key, my_struct_t *s)
 {
 	if (key == FORWARD)
 	{
-		if (((s->map[(int)(s->posx + s->dirx * SPEED)][(int)s->posy] == '0') || (s->map[(int)(s->posx + s->dirx * SPEED)][(int)s->posy] == '2')) &&
-				(s->map[(int)((s->posx + 0.5) + s->dirx * SPEED)][(int)s->posy] != '1'))
+		if ((s->map[(int)(s->posx + s->dirx * SPEED)][(int)s->posy] == '0') || (s->map[(int)(s->posx + s->dirx * SPEED)][(int)s->posy] == '2'))
 			s->posx += s->dirx * SPEED;
-		if (((s->map[(int)s->posx][(int)(s->posy + s->diry * SPEED)] == '0') || (s->map[(int)s->posx][(int)(s->posy + s->diry * SPEED)] == '2')) &&
-				(s->map[(int)s->posx][(int)((s->posy + 0.5) + s->diry * SPEED)] != '1'))
+		if ((s->map[(int)s->posx][(int)(s->posy + s->diry * SPEED)] == '0') || (s->map[(int)s->posx][(int)(s->posy + s->diry * SPEED)] == '2'))
 			s->posy += s->diry * SPEED;
 	}
 	else if (key == BACK)
 	{
-		if (((s->map[(int)(s->posx - s->dirx * SPEED)][(int)(s->posy)] == '0') || (s->map[(int)(s->posx - s->dirx * SPEED)][(int)(s->posy)] == '2')) &&
-				(s->map[(int)((s->posx - 0.5) - s->dirx * SPEED)][(int)(s->posy)] != '1'))
+		if ((s->map[(int)(s->posx - s->dirx * SPEED)][(int)(s->posy)] == '0') || (s->map[(int)(s->posx - s->dirx * SPEED)][(int)(s->posy)] == '2'))
 			s->posx -= s->dirx * SPEED;
-		if (((s->map[(int)(s->posx)][(int)(s->posy - s->diry * SPEED)] == '0') || (s->map[(int)(s->posx)][(int)(s->posy - s->diry * SPEED)] == '2')) &&
-				(s->map[(int)(s->posx)][(int)((s->posy - 0.5) - s->diry * SPEED)] != '1'))
+		if ((s->map[(int)(s->posx)][(int)(s->posy - s->diry * SPEED)] == '0') || (s->map[(int)(s->posx)][(int)(s->posy - s->diry * SPEED)] == '2'))
 			s->posy -= s->diry * SPEED;
-	}
-	else if (key == LEFT)
-	{
-		if ((s->map[(int)(s->posx)][(int)(s->posy + s->dirx * SPEED)] == '0') &&
-			(s->map[(int)(s->posx)][(int)((s->posy + 0.3) + s->dirx * SPEED)] != '1'))
-			s->posy += s->dirx * SPEED;
-		if ((s->map[(int)(s->posx + s->diry *SPEED)][(int)(s->posy)] == '0') &&
-			(s->map[(int)((s->posx - 0.3) + s->diry *SPEED)][(int)(s->posy)] != '1'))
-			s->posx -= s->diry * SPEED;
 	}
 	else if (key == RIGHT)
 	{
-		if ((s->map[(int)(s->posx)][(int)(s->posy - s->dirx * SPEED)] == '0') &&
-				(s->map[(int)(s->posx)][(int)((s->posy - 0.3) - s->dirx * SPEED)] != '1'))
+		if (s->map[(int)(s->posx)][(int)(s->posy + s->dirx * SPEED)] == '0')
 			s->posy -= s->dirx * SPEED;
-		if ((s->map[(int)(s->posx - s->diry *SPEED)][(int)(s->posy)] == '0') &&
-				(s->map[(int)((s->posx + 0.3) - s->diry *SPEED)][(int)(s->posy)] != '1'))
+		if (s->map[(int)(s->posx + s->diry *SPEED)][(int)(s->posy)] == '0')
 			s->posx += s->diry * SPEED;
+	}
+	else if (key == LEFT)
+	{
+		if (s->map[(int)(s->posx)][(int)(s->posy - s->dirx * SPEED)] == '0')
+			s->posy += s->dirx * SPEED;
+		if (s->map[(int)(s->posx - s->diry *SPEED)][(int)(s->posy)] == '0')
+			s->posx -= s->diry * SPEED;	
 	}
 	else if (key == ROTATE_RIGHT)
 	{
@@ -176,21 +168,10 @@ void	ft_wall(my_struct_t *s)
 			s->y++;
 			j++;
 		}
-		// free(s->colortab[i]);
 		s->x++;
 		i++;
 	}
-	
-	// free(s->colortab);
-
-	// free(s->starts);
-	// free(s->sidehits);
-	// free(s->lines);
-
-	// ft_free_double_pointer_int(s->colortab, s);
-
 	ft_sprite(s);
-	
 	mlx_put_image_to_window(s->mlx_ptr, s->win_ptr, s->img_ptr, 0, 0);
 	mlx_destroy_image(s->mlx_ptr, s->img_ptr);
 }

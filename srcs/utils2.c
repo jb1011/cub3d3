@@ -44,8 +44,8 @@ void	ft_display_map(char **tab)
 
 int		ft_check_for_0(char **tab)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	j = 0;
 	while (tab[j])
@@ -62,7 +62,6 @@ int		ft_check_for_0(char **tab)
 	return (1);
 }
 
-
 int		is_spawn(char c)
 {
 	if (c == 'N' || c == 'N' || c == 'E' || c == 'W')
@@ -74,25 +73,4 @@ void	ft_rgbconv(my_struct_t *s)
 {
 	s->hexaf = 256 * 256 * s->f_r + 256 * s->f_g + s->f_b;
 	s->hexac = 256 * 256 * s->c_r + 256 * s->c_g + s->c_b;
-}
-
-void		ft_count_2(my_struct_t *s)
-{
-	int i;
-	int j;
-
-	j = 0;
-	while (s->map[j])
-	{
-		i = 0;
-		while (s->map[j][i])
-		{
-			if (s->map[j][i] == '2')
-			{
-				s->sp.nbspr += 1;
-			}
-			i++;
-		}
-		j++;
-	}
 }

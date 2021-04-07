@@ -25,12 +25,12 @@ void	ft_ceiling_util(t_check_error_t *checker)
 
 void	check_error_util(char *str, t_check_error_t *checker)
 {
-        if (str[0] == 'F')
-			checker->f = ft_strdup(str);
-		else if (str[0] == 'C')
-			checker->c = ft_strdup(str);
-		else if (str[0] == 0)
-			checker->count--;
+	if (str[0] == 'F')
+		checker->f = ft_strdup(str);
+	else if (str[0] == 'C')
+		checker->c = ft_strdup(str);
+	else if (str[0] == 0)
+		checker->count--;
 }
 
 void	ft_freee22(my_struct_t *s)

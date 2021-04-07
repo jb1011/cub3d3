@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../Include/cub3d.h"
 
 int		ft_count(char const *s, char c)
@@ -54,8 +53,10 @@ int		ft_strcmp(char *s1, char *s2)
 
 int		ft_path_compare(char *s1)
 {
-	if ((ft_strcmp(s1, "./textures/brick.xpm") == 0) || (ft_strcmp(s1, "./textures/metal.xpm") == 0) ||
-		(ft_strcmp(s1, "./textures/wood.xpm") == 0) || (ft_strcmp(s1, "./textures/grass.xpm") == 0))
+	if ((ft_strcmp(s1, "./textures/brick.xpm") == 0) ||
+		(ft_strcmp(s1, "./textures/metal.xpm") == 0) ||
+		(ft_strcmp(s1, "./textures/wood.xpm") == 0) ||
+			(ft_strcmp(s1, "./textures/grass.xpm") == 0))
 		return (1);
 	return (0);
 }

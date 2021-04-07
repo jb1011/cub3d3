@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "../Include/cub3d.h"
 
 char				*ft_read_and_join(char *str, int fd, int *ret)

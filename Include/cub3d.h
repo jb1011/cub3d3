@@ -311,4 +311,7 @@ void	ft_ceiling_util(t_check_error_t *checker);
 void	check_error_util(char *str, t_check_error_t *checker);
 void	ft_freee(t_check_error_t *checker);
 void	ft_freee22(my_struct_t *s);
+void	ft_check_path2(t_check_error_t *checker, my_struct_t *my_struct);
+void	ft_check_path1(t_check_error_t *checker, my_struct_t *my_struct);
+
 #endif

@@ -16,17 +16,7 @@ void	ft_check_path(t_check_error_t *checker, my_struct_t *my_struct)
 {
 	if (checker->no && checker->so && checker->we && checker->ea)
 	{
-		checker->tab4 = ft_split(checker->no, ' ');
-		if (ft_path_compare(checker->tab4[1]) == 1)
-		{
-			my_struct->no = ft_strdup(checker->tab4[1]);
-			checker->result += 1;
-		}
-		else
-		{
-			my_struct->no = ft_strdup("");
-			printf("Error\ninvalid path for NO\n");
-		}
+		ft_check_path1(checker, my_struct);
 		checker->tab6 = ft_split(checker->so, ' ');
 		if (ft_path_compare(checker->tab6[1]) == 1)
 		{
@@ -38,32 +28,50 @@ void	ft_check_path(t_check_error_t *checker, my_struct_t *my_struct)
 			my_struct->so = ft_strdup("");
 			printf("Error\ninvalid path for SO\n");
 		}
-		checker->tab7 = ft_split(checker->we, ' ');
-		if (ft_path_compare(checker->tab7[1]) == 1)
-		{
-			my_struct->we = ft_strdup(checker->tab7[1]);
-			checker->result += 1;
-		}
-		else
-		{
-			my_struct->we = ft_strdup("");
-			printf("Error\ninvalid path for WE\n");
-		}
-		checker->tab8 = ft_split(checker->ea, ' ');
-		if (ft_path_compare(checker->tab8[1]) == 1)
-		{
-			my_struct->ea = ft_strdup(checker->tab8[1]);
-			checker->result += 1;
-		}
-		else
-		{
-			my_struct->ea = ft_strdup("");
-			printf("Error\ninvalid path for EA\n");
-		}
+		ft_check_path2(checker, my_struct);
+	}
+	else
+		printf("Error\npath missing\n");
+}
+
+void	ft_check_path1(t_check_error_t *checker, my_struct_t *my_struct)
+{
+	checker->tab4 = ft_split(checker->no, ' ');
+	if (ft_path_compare(checker->tab4[1]) == 1)
+	{
+		my_struct->no = ft_strdup(checker->tab4[1]);
+		checker->result += 1;
 	}
 	else
 	{
-		printf("Error\npath missing\n");
+		my_struct->no = ft_strdup("");
+		printf("Error\ninvalid path for NO\n");
+	}
+}
+
+void	ft_check_path2(t_check_error_t *checker, my_struct_t *my_struct)
+{
+	checker->tab7 = ft_split(checker->we, ' ');
+	if (ft_path_compare(checker->tab7[1]) == 1)
+	{
+		my_struct->we = ft_strdup(checker->tab7[1]);
+		checker->result += 1;
+	}
+	else
+	{
+		my_struct->we = ft_strdup("");
+		printf("Error\ninvalid path for WE\n");
+	}
+	checker->tab8 = ft_split(checker->ea, ' ');
+	if (ft_path_compare(checker->tab8[1]) == 1)
+	{
+		my_struct->ea = ft_strdup(checker->tab8[1]);
+		checker->result += 1;
+	}
+	else
+	{
+		my_struct->ea = ft_strdup("");
+		printf("Error\ninvalid path for EA\n");
 	}
 }
 

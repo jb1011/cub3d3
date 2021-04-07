@@ -24,19 +24,14 @@ void	window_init(my_struct_t *s)
 	replace_spawn(s);
 	ft_rgbconv(s);
 	init_t_ray(s);
-	
 	init_dir(s);
 	get_text(s);
-
 	ft_init_sprite(s);
 	mlx_hook(s->win_ptr, 33, 1L << 17, ft_exit, s);
-	
 	mlx_hook(s->win_ptr, 2, 1L << 0, deal_key, s);
 	mlx_loop_hook(s->mlx_ptr, ft_raycaster, s);
 	mlx_loop(s->mlx_ptr);
 }
-
-
 
 void	replace_spawn(my_struct_t *s)
 {
@@ -49,7 +44,8 @@ void	replace_spawn(my_struct_t *s)
 		i = 0;
 		while (s->map[j][i])
 		{
-			if (s->map[j][i] == 'N' || s->map[j][i] == 'S' || s->map[j][i] == 'E' || s->map[j][i] == 'W')
+			if (s->map[j][i] == 'N' || s->map[j][i] == 'S' ||
+				s->map[j][i] == 'E' || s->map[j][i] == 'W')
 			{
 				s->spawn.type = s->map[j][i];
 				s->spawn.x = i;
@@ -67,40 +63,43 @@ void	ft_create_image(my_struct_t *s)
 	s->x = 0;
 	s->y = 0;
 	s->img_ptr = mlx_new_image(s->mlx_ptr, s->width, s->height);
-	s->img_data = (int *)mlx_get_data_addr(s->img_ptr, &s->bpp, &s->size_line, &s->endian);
+	s->img_data = (int *)mlx_get_data_addr(s->img_ptr, &s->bpp,
+		&s->size_line, &s->endian);
 }
 
-
-
-int	deal_key(int key, my_struct_t *s)
+int		deal_key(int key, my_struct_t *s)
 {
 	if (key == FORWARD)
 	{
-		if ((s->map[(int)(s->posx + s->dirx * SPEED)][(int)s->posy] == '0') || (s->map[(int)(s->posx + s->dirx * SPEED)][(int)s->posy] == '2'))
+		if ((s->map[(int)(s->posx + s->dirx * SPEED)][(int)s->posy] == '0') ||
+			(s->map[(int)(s->posx + s->dirx * SPEED)][(int)s->posy] == '2'))
 			s->posx += s->dirx * SPEED;
-		if ((s->map[(int)s->posx][(int)(s->posy + s->diry * SPEED)] == '0') || (s->map[(int)s->posx][(int)(s->posy + s->diry * SPEED)] == '2'))
+		if ((s->map[(int)s->posx][(int)(s->posy + s->diry * SPEED)] == '0') ||
+			(s->map[(int)s->posx][(int)(s->posy + s->diry * SPEED)] == '2'))
 			s->posy += s->diry * SPEED;
 	}
 	else if (key == BACK)
 	{
-		if ((s->map[(int)(s->posx - s->dirx * SPEED)][(int)(s->posy)] == '0') || (s->map[(int)(s->posx - s->dirx * SPEED)][(int)(s->posy)] == '2'))
+		if ((s->map[(int)(s->posx - s->dirx * SPEED)][(int)(s->posy)] == '0') ||
+			(s->map[(int)(s->posx - s->dirx * SPEED)][(int)(s->posy)] == '2'))
 			s->posx -= s->dirx * SPEED;
-		if ((s->map[(int)(s->posx)][(int)(s->posy - s->diry * SPEED)] == '0') || (s->map[(int)(s->posx)][(int)(s->posy - s->diry * SPEED)] == '2'))
+		if ((s->map[(int)(s->posx)][(int)(s->posy - s->diry * SPEED)] == '0') ||
+			(s->map[(int)(s->posx)][(int)(s->posy - s->diry * SPEED)] == '2'))
 			s->posy -= s->diry * SPEED;
 	}
 	else if (key == RIGHT)
 	{
 		if (s->map[(int)(s->posx)][(int)(s->posy + s->dirx * SPEED)] == '0')
 			s->posy -= s->dirx * SPEED;
-		if (s->map[(int)(s->posx + s->diry *SPEED)][(int)(s->posy)] == '0')
+		if (s->map[(int)(s->posx + s->diry * SPEED)][(int)(s->posy)] == '0')
 			s->posx += s->diry * SPEED;
 	}
 	else if (key == LEFT)
 	{
 		if (s->map[(int)(s->posx)][(int)(s->posy - s->dirx * SPEED)] == '0')
 			s->posy += s->dirx * SPEED;
-		if (s->map[(int)(s->posx - s->diry *SPEED)][(int)(s->posy)] == '0')
-			s->posx -= s->diry * SPEED;	
+		if (s->map[(int)(s->posx - s->diry * SPEED)][(int)(s->posy)] == '0')
+			s->posx -= s->diry * SPEED;
 	}
 	else if (key == ROTATE_RIGHT)
 	{
@@ -125,7 +124,7 @@ int	deal_key(int key, my_struct_t *s)
 	return (0);
 }
 
-int	ft_exit(my_struct_t *s)
+int		ft_exit(my_struct_t *s)
 {
 	ft_free_s(s);
 	if (s->texture[0].img)
@@ -155,7 +154,6 @@ void	ft_wall(my_struct_t *s)
 	ft_create_image(s);
 	while (i < s->width)
 	{
-
 		j = 0;
 		s->y = 0;
 		while (j < s->starts[i])
@@ -173,7 +171,6 @@ void	ft_wall(my_struct_t *s)
 			k++;
 			j++;
 		}
-
 		while (j < s->height)
 		{
 			s->img_data[s->y * s->size_line / 4 + s->x] = s->hexaf;
@@ -187,73 +184,3 @@ void	ft_wall(my_struct_t *s)
 	mlx_put_image_to_window(s->mlx_ptr, s->win_ptr, s->img_ptr, 0, 0);
 	mlx_destroy_image(s->mlx_ptr, s->img_ptr);
 }
-
-void	put_pixel(my_struct_t *s, int x, int y, int color)
-{
-	s->img_data[x * 4 + 4 * s->width * y] = color;
-}
-
-// void	ft_fill_image(my_struct_t *s)
-// {
-// 	int i;
-// 	int j;
-// 	int x;
-
-// 	j = 0;
-// 	s->x = 0;
-// 	s->y = 0;
-// 	while (s->map[j])
-// 	{
-// 		i = 0;
-// 		x = 0;
-// 		s->x = 0;
-// 		while (s->map[j][i])
-// 		{
-// 			if (j == (int)s->posx && i == (int)s->posy)
-// 				ft_fill_inside(s, 8);
-// 			else if (s->map[j][i] == '1' || s->map[j][i] == '2')
-// 				ft_fill_inside(s, 700);
-// 			else if (s->map[j][i] == '0')
-// 				ft_fill_inside(s, 1500);
-// 			s->x += 10;
-// 			i++;
-// 			x++;
-
-// 		}
-// 		s->y += 10;
-// 		j++;
-// 	}
-// 	mlx_put_image_to_window(s->mlx_ptr, s->win_ptr, s->img_ptr, 0, 0);
-// 	mlx_destroy_image(s->mlx_ptr, s->img_ptr);
-// }
-
-
-
-
-// void	ft_fill_inside(my_struct_t *s, int color)
-// {
-// 	int x;
-// 	int tmpx;
-// 	int y;
-// 	int i;
-// 	int j;
-
-// 	tmpx = s->x;
-// 	y = s->y;
-// 	i = 0;
-// 	j = 0;
-// 	while (j < 10)
-// 	{
-// 		x = tmpx;
-// 		i = 0;
-// 		put_pixel(s, x, y,  color);
-// 		while (i < 10)
-// 		{
-// 			put_pixel(s, x, y, color);
-// 			x++;
-// 			i++;
-// 		}
-// 		j++;
-// 		y++;
-// 	}
-// }

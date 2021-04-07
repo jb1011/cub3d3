@@ -58,15 +58,6 @@ void	replace_spawn(my_struct_t *s)
 	}
 }
 
-void	ft_create_image(my_struct_t *s)
-{
-	s->x = 0;
-	s->y = 0;
-	s->img_ptr = mlx_new_image(s->mlx_ptr, s->width, s->height);
-	s->img_data = (int *)mlx_get_data_addr(s->img_ptr, &s->bpp,
-		&s->size_line, &s->endian);
-}
-
 int		deal_key(int key, my_struct_t *s)
 {
 	if (key == FORWARD)
@@ -87,38 +78,7 @@ int		deal_key(int key, my_struct_t *s)
 			(s->map[(int)(s->posx)][(int)(s->posy - s->diry * SPEED)] == '2'))
 			s->posy -= s->diry * SPEED;
 	}
-	else if (key == RIGHT)
-	{
-		if (s->map[(int)(s->posx)][(int)(s->posy + s->dirx * SPEED)] == '0')
-			s->posy -= s->dirx * SPEED;
-		if (s->map[(int)(s->posx + s->diry * SPEED)][(int)(s->posy)] == '0')
-			s->posx += s->diry * SPEED;
-	}
-	else if (key == LEFT)
-	{
-		if (s->map[(int)(s->posx)][(int)(s->posy - s->dirx * SPEED)] == '0')
-			s->posy += s->dirx * SPEED;
-		if (s->map[(int)(s->posx - s->diry * SPEED)][(int)(s->posy)] == '0')
-			s->posx -= s->diry * SPEED;
-	}
-	else if (key == ROTATE_RIGHT)
-	{
-		s->olddirx = s->dirx;
-		s->dirx = s->dirx * cos(-ROTSPEED) - s->diry * sin(-ROTSPEED);
-		s->diry = s->olddirx * sin(-ROTSPEED) + s->diry * cos(-ROTSPEED);
-		s->oldplanx = s->planx;
-		s->planx = s->planx * cos(-ROTSPEED) - s->plany * sin(-ROTSPEED);
-		s->plany = s->oldplanx * sin(-ROTSPEED) + s->plany * cos(-ROTSPEED);
-	}
-	else if (key == ROTATE_LEFT)
-	{
-		s->olddirx = s->dirx;
-		s->dirx = s->dirx * cos(ROTSPEED) - s->diry * sin(ROTSPEED);
-		s->diry = s->olddirx * sin(ROTSPEED) + s->diry * cos(ROTSPEED);
-		s->oldplanx = s->planx;
-		s->planx = s->planx * cos(ROTSPEED) - s->plany * sin(ROTSPEED);
-		s->plany = s->oldplanx * sin(ROTSPEED) + s->plany * cos(ROTSPEED);
-	}
+	key_more(key, s);
 	if (key == ESCAPE)
 		ft_exit(s);
 	return (0);
@@ -146,37 +106,17 @@ void	ft_wall(my_struct_t *s)
 {
 	int i;
 	int j;
-	int k;
 	int color;
 
 	i = 0;
 	s->x = 0;
+	color = 0;
 	ft_create_image(s);
 	while (i < s->width)
 	{
 		j = 0;
 		s->y = 0;
-		while (j < s->starts[i])
-		{
-			s->img_data[s->y * s->size_line / 4 + s->x] = s->hexac;
-			s->y++;
-			j++;
-		}
-		k = 0;
-		while (j < s->lines[i] && j < s->height)
-		{
-			color = s->colortab[k][i];
-			s->img_data[s->y * s->size_line / 4 + s->x] = color;
-			s->y++;
-			k++;
-			j++;
-		}
-		while (j < s->height)
-		{
-			s->img_data[s->y * s->size_line / 4 + s->x] = s->hexaf;
-			s->y++;
-			j++;
-		}
+		ft_wall2(j, color, i, s);
 		s->x++;
 		i++;
 	}

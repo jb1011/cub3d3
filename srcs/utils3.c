@@ -44,3 +44,25 @@ void	ft_freee22(my_struct_t *s)
 	if (s->lines)
 		free(s->lines);
 }
+
+void	ft_create_image(my_struct_t *s)
+{
+	s->x = 0;
+	s->y = 0;
+	s->img_ptr = mlx_new_image(s->mlx_ptr, s->width, s->height);
+	s->img_data = (int *)mlx_get_data_addr(s->img_ptr, &s->bpp,
+		&s->size_line, &s->endian);
+}
+
+void	key_more_more(int key, my_struct_t *s)
+{
+	if (key == ROTATE_LEFT)
+	{
+		s->olddirx = s->dirx;
+		s->dirx = s->dirx * cos(ROTSPEED) - s->diry * sin(ROTSPEED);
+		s->diry = s->olddirx * sin(ROTSPEED) + s->diry * cos(ROTSPEED);
+		s->oldplanx = s->planx;
+		s->planx = s->planx * cos(ROTSPEED) - s->plany * sin(ROTSPEED);
+		s->plany = s->oldplanx * sin(ROTSPEED) + s->plany * cos(ROTSPEED);
+	}
+}

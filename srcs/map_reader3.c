@@ -94,14 +94,14 @@ int		ft_check_right_spawn(my_struct_t *my_struct)
 	int i;
 	int j;
 
-	j = 1;
-	while (j < my_struct->last_columns)
+	j = 0;
+	while (++j < my_struct->last_columns)
 	{
 		i = 0;
 		while (my_struct->mapcpy[j][i])
 		{
 			if (my_struct->mapcpy[j][i] == 'N' || my_struct->mapcpy[j][i] == 'S'
-				|| my_struct->mapcpy[j][i] == 'E' || my_struct->mapcpy[j][i] == 'W')
+			|| my_struct->mapcpy[j][i] == 'E' || my_struct->mapcpy[j][i] == 'W')
 			{
 				if (my_struct->mapcpy[j][i - 1] == ' ')
 					return (0);
@@ -114,7 +114,6 @@ int		ft_check_right_spawn(my_struct_t *my_struct)
 			}
 			i++;
 		}
-		j++;
 	}
 	return (1);
 }

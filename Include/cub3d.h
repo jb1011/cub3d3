@@ -313,5 +313,12 @@ void	ft_freee(t_check_error_t *checker);
 void	ft_freee22(my_struct_t *s);
 void	ft_check_path2(t_check_error_t *checker, my_struct_t *my_struct);
 void	ft_check_path1(t_check_error_t *checker, my_struct_t *my_struct);
+void	key_more(int key, my_struct_t *s);
+void	key_more_more(int key, my_struct_t *s);
+void	ft_wall2(int j, int color, int i, my_struct_t *s);
+void	check_validity_2(my_struct_t *my_struct, int i, int j, int res);
+void	check_utilss(my_struct_t *my_struct, int i, int j);
+void	check_free(my_struct_t *my_struct);
+void	ft_put_less(my_struct_t *my_struct, t_check_map_t *map_checker);
 
 #endif

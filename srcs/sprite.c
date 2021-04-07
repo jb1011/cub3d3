@@ -12,47 +12,6 @@
 
 #include "../Include/cub3d.h"
 
-void	ft_dis_order2(my_struct_t *s)
-{
-	int i;
-
-	i = -1;
-	while (++i < s->sp.nbspr)
-	{
-		s->sp.order[i] = i;
-		s->sp.dist[i] = ((s->posx - s->c[i].x) *
-				(s->posx - s->c[i].x) + (s->posy -
-					s->c[i].y) * (s->posy - s->c[i].y));
-
-	}
-}
-
-void	ft_dis_order(my_struct_t *s)
-{
-	int			i;
-	int 		j;
-	double		tmp;
-
-	ft_dis_order2(s);
-	i = -1;
-	while (++i < s->sp.nbspr)
-	{
-		j = -1;
-		while (++j < s->sp.nbspr -1)
-		{
-			if (s->sp.dist[j] < s->sp.dist[j + 1])
-			{
-				tmp = s->sp.dist[j];
-				s->sp.dist[j] = s->sp.dist[j + 1];
-				s->sp.dist[j + 1] = tmp;
-				tmp = s->sp.order[j];
-				s->sp.order[j] = s->sp.order[j + 1];
-				s->sp.order[j + 1] = (int)tmp;
-			}
-		}
-	}
-}
-
 void	ft_calc(my_struct_t *s, int i)
 {
 	s->sp.spritex = s->c[s->sp.order[i]].x - s->posx;
@@ -90,7 +49,8 @@ void	ft_draw_spr(my_struct_t *s, int y, int texx, int stripe)
 	{
 		d = (y) * 256 - s->height * 128 + s->sp.spriteheight * 128;
 		texy = ((d * s->texture[4].height) / s->sp.spriteheight) / 256;
-		if (s->texture[4].addr[texy * s->texture[4].line_height / 4 + texx] != 0)
+		if (s->texture[4].addr[texy * s->texture[4].line_height /
+			4 + texx] != 0)
 		{
 			s->img_data[y * s->size_line / 4 + stripe] =
 				s->texture[4].addr[texy * s->texture[4].line_height / 4 + texx];
@@ -99,7 +59,7 @@ void	ft_draw_spr(my_struct_t *s, int y, int texx, int stripe)
 	}
 }
 
-int    ft_sprite(my_struct_t *s)
+int		ft_sprite(my_struct_t *s)
 {
 	int i;
 	int y;
@@ -111,22 +71,24 @@ int    ft_sprite(my_struct_t *s)
 	while (++i < s->sp.nbspr)
 	{
 		ft_calc(s, i);
-		stripe = s->sp.drawstartx;
-		while (stripe < s->sp.drawendx)
+		stripe = s->sp.drawstartx - 1;
+		while (++stripe < s->sp.drawendx)
 		{
-			texx = (int)(256 * (stripe - (-s->sp.spritewidth / 2 + s->sp.spritescreenx)) * s->texture[4].width / s->sp.spritewidth) / 256;
-			if (s->sp.transformy > 0 && stripe >= 0 && stripe < s->width && s->sp.transformy < s->sp.zbuffer[stripe])
+			texx = (int)(256 * (stripe - (-s->sp.spritewidth / 2 +
+			s->sp.spritescreenx)) * s->texture[4].width /
+				s->sp.spritewidth) / 256;
+			if (s->sp.transformy > 0 && stripe >= 0 && stripe < s->width &&
+				s->sp.transformy < s->sp.zbuffer[stripe])
 			{
 				y = s->sp.drawstarty;
 				ft_draw_spr(s, y, texx, stripe);
 			}
-			stripe++;
 		}
 	}
 	return (0);
 }
 
-int	ft_init_sprite(my_struct_t *s)
+int		ft_init_sprite(my_struct_t *s)
 {
 	int j;
 

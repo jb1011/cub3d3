@@ -320,5 +320,12 @@ void	check_validity_2(my_struct_t *my_struct, int i, int j, int res);
 void	check_utilss(my_struct_t *my_struct, int i, int j);
 void	check_free(my_struct_t *my_struct);
 void	ft_put_less(my_struct_t *my_struct, t_check_map_t *map_checker);
+void	map_malloc2(my_struct_t *my_struct, int i, int fd, char *str);
+void	ft_map_malloc_3(my_struct_t *my_struct, int i, int fd, char *str);
+void	ray1(my_struct_t *s);
+void	ray2(my_struct_t *s);
+void	ray3(my_struct_t *s);
+void	ray4(my_struct_t *s);
+void	init_dir2(my_struct_t *s);
 
 #endif

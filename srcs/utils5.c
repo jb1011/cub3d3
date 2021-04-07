@@ -26,3 +26,75 @@ void	ft_map_check_right(my_struct_t *my_struct, int i, int j)
 		x++;
 	}
 }
+
+void	map_malloc2(my_struct_t *my_struct, int i, int fd, char *str)
+{
+	int ret;
+
+	my_struct->last_columns = i - 1;
+	my_struct->map = malloc(sizeof(char *) * (i + 1));
+	my_struct->map[i] = 0;
+	free(str);
+	fd = open(my_struct->doc, O_RDONLY);
+	i = 0;
+	while ((ret = get_next_line(fd, &str)) > 0)
+	{
+		if (str[0] == '1' || str[0] == ' ' ||
+			str[0] == '0' || str[0] == '2')
+		{
+			my_struct->map[i] = ft_strdup(str);
+			i++;
+		}
+		free(str);
+	}
+	if (str[0] == '1' || str[0] == ' ' || str[0] == '0' || str[0] == '2')
+		my_struct->map[i] = ft_strdup(str);
+	free(str);
+}
+
+void	ft_map_malloc_3(my_struct_t *my_struct, int i, int fd, char *str)
+{
+	if (str[0] == '1' || str[0] == ' ' || str[0] == '0' || str[0] == '2')
+		i++;
+	map_malloc2(my_struct, i, fd, str);
+}
+
+void	ft_dis_order2(my_struct_t *s)
+{
+	int i;
+
+	i = -1;
+	while (++i < s->sp.nbspr)
+	{
+		s->sp.order[i] = i;
+		s->sp.dist[i] = ((s->posx - s->c[i].x) *
+				(s->posx - s->c[i].x) + (s->posy -
+					s->c[i].y) * (s->posy - s->c[i].y));
+	}
+}
+
+void	ft_dis_order(my_struct_t *s)
+{
+	int		i;
+	double	tmp;
+	int		j;
+
+	ft_dis_order2(s);
+	i = -1;
+	while (++i < s->sp.nbspr)
+	{
+		j = -1;
+		while (++j < s->sp.nbspr - 1)
+		{
+			if (s->sp.dist[j] < s->sp.dist[j + 1])
+			{
+				tmp = s->sp.dist[j];
+				s->sp.dist[j] = s->sp.dist[j + 1];
+				s->sp.dist[j + 1] = tmp;
+				tmp = s->sp.order[j];
+				s->sp.order[j] = s->sp.order[j + 1];
+				s->sp.order[j + 1] = (int)tmp;
+			}
+		}
+	}
+}

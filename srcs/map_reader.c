@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../Include/cub3d.h"
 
 void	ft_caller(my_struct_t *my_struct, t_check_error_t *checker)
@@ -68,33 +67,11 @@ void	ft_map_malloc(my_struct_t *my_struct, int fd, t_check_map_t *checker)
 	}
 	if (my_struct->error == 0)
 	{
-		if (str[0] == '1' || str[0] == ' ' || str[0] == '0' || str[0] == '2')
-			i++;
-		my_struct->last_columns = i - 1;
-		my_struct->map = malloc(sizeof(char *) * (i + 1));
-		my_struct->map[i] = 0;
-		free(str);
-		fd = open(my_struct->doc, O_RDONLY);
-		i = 0;
-		while ((ret = get_next_line(fd, &str)) > 0)
-		{
-			if (str[0] == '1' || str[0] == ' ' || str[0] == '0' || str[0] == '2')
-			{
-				my_struct->map[i] = ft_strdup(str);
-				i++;
-			}
-			free(str);
-		}
-		if (str[0] == '1' || str[0] == ' ' || str[0] == '0' || str[0] == '2')
-			my_struct->map[i] = ft_strdup(str);
-		free(str);
+		ft_map_malloc_3(my_struct, i, fd, str);
 		ft_check_error_map(my_struct, checker);
 	}
 	else
-	{
 		free(str);
-		return ;
-	}
 }
 
 void	ft_init_check_map(t_check_map_t *map_checker)
@@ -110,8 +87,8 @@ void	ft_check_error_map(my_struct_t *my_struct, t_check_map_t *map_checker)
 {
 	int i;
 
-	i = 0;
-	while (my_struct->map[0][i])
+	i = -1;
+	while (my_struct->map[0][++i])
 	{
 		if (my_struct->map[0][i] != '1' && my_struct->map[0][i] != ' ')
 		{
@@ -119,7 +96,6 @@ void	ft_check_error_map(my_struct_t *my_struct, t_check_map_t *map_checker)
 			map_checker->result_map--;
 			break ;
 		}
-		i++;
 	}
 	i = 0;
 	while (my_struct->map[my_struct->last_columns][i])

@@ -66,7 +66,7 @@ void	ft_free_double_pointer(char **tab)
 	free(tab);
 }
 
-void	ft_free_s(my_struct_t *s)
+void	ft_free_s(t_struct_t *s)
 {
 	if (s->no)
 		free(s->no);
@@ -91,7 +91,7 @@ void	ft_free_s(my_struct_t *s)
 	ft_freee22(s);
 }
 
-void	ft_free_double_pointer_int(my_struct_t *s)
+void	ft_free_double_pointer_int(t_struct_t *s)
 {
 	int n;
 

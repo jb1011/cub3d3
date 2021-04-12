@@ -12,7 +12,7 @@
 
 #include "../Include/cub3d.h"
 
-void	ft_map_line_check(my_struct_t *my_struct, t_check_map_t *map_checker)
+void	ft_map_line_check(t_struct_t *my_struct, t_check_map_t *map_checker)
 {
 	int j;
 	int k;
@@ -39,13 +39,13 @@ void	ft_map_line_check(my_struct_t *my_struct, t_check_map_t *map_checker)
 		ft_putstr_fd("Error\nwith beginning or end of map\n", 0);
 }
 
-void	ft_put_less(my_struct_t *my_struct, t_check_map_t *map_checker)
+void	ft_put_less(t_struct_t *my_struct, t_check_map_t *map_checker)
 {
 	map_checker->result_map--;
 	my_struct->result_map--;
 }
 
-void	check_validity_2(my_struct_t *my_struct, int i, int j, int res)
+void	check_validity_2(t_struct_t *my_struct, int i, int j, int res)
 {
 	if (ft_check_for_spawn(my_struct) && ft_check_right_spawn(my_struct)
 		&& ft_check_garbage(my_struct))
@@ -74,7 +74,7 @@ void	check_validity_2(my_struct_t *my_struct, int i, int j, int res)
 		printf("Error\nwith spawn\n");
 }
 
-void	ft_map_check_left(my_struct_t *my_struct, int i, int j)
+void	ft_map_check_left(t_struct_t *my_struct, int i, int j)
 {
 	int x;
 	int y;
@@ -90,7 +90,7 @@ void	ft_map_check_left(my_struct_t *my_struct, int i, int j)
 	}
 }
 
-void	ft_map_check_up(my_struct_t *my_struct, int i, int j)
+void	ft_map_check_up(t_struct_t *my_struct, int i, int j)
 {
 	int x;
 	int y;

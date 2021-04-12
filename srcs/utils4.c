@@ -12,35 +12,30 @@
 
 #include "../Include/cub3d.h"
 
-void	key_more(int key, my_struct_t *s)
+void	key_more(int key, t_struct_t *s)
 {
 	if (key == RIGHT)
 	{
-		if (s->map[(int)(s->posx)][(int)(s->posy + s->dirx * SPEED)] == '0')
+		if ((s->map[(int)(s->posx)][(int)(s->posy + s->dirx * SPEED)] == '0')
+		|| (s->map[(int)(s->posx)][(int)(s->posy + s->dirx * SPEED)] == '2'))
 			s->posy -= s->dirx * SPEED;
-		if (s->map[(int)(s->posx + s->diry * SPEED)][(int)(s->posy)] == '0')
+		if ((s->map[(int)(s->posx + s->diry * SPEED)][(int)(s->posy)] == '0')
+		|| (s->map[(int)(s->posx + s->diry * SPEED)][(int)(s->posy)] == '2'))
 			s->posx += s->diry * SPEED;
 	}
 	else if (key == LEFT)
 	{
-		if (s->map[(int)(s->posx)][(int)(s->posy - s->dirx * SPEED)] == '0')
+		if ((s->map[(int)(s->posx)][(int)(s->posy - s->dirx * SPEED)] == '0')
+		|| (s->map[(int)(s->posx)][(int)(s->posy - s->dirx * SPEED)] == '2'))
 			s->posy += s->dirx * SPEED;
-		if (s->map[(int)(s->posx - s->diry * SPEED)][(int)(s->posy)] == '0')
+		if ((s->map[(int)(s->posx - s->diry * SPEED)][(int)(s->posy)] == '0')
+		|| (s->map[(int)(s->posx - s->diry * SPEED)][(int)(s->posy)] == '2'))
 			s->posx -= s->diry * SPEED;
-	}
-	else if (key == ROTATE_RIGHT)
-	{
-		s->olddirx = s->dirx;
-		s->dirx = s->dirx * cos(-ROTSPEED) - s->diry * sin(-ROTSPEED);
-		s->diry = s->olddirx * sin(-ROTSPEED) + s->diry * cos(-ROTSPEED);
-		s->oldplanx = s->planx;
-		s->planx = s->planx * cos(-ROTSPEED) - s->plany * sin(-ROTSPEED);
-		s->plany = s->oldplanx * sin(-ROTSPEED) + s->plany * cos(-ROTSPEED);
 	}
 	key_more_more(key, s);
 }
 
-void	ft_wall2(int j, int color, int i, my_struct_t *s)
+void	ft_wall2(int j, int color, int i, t_struct_t *s)
 {
 	int k;
 
@@ -67,7 +62,7 @@ void	ft_wall2(int j, int color, int i, my_struct_t *s)
 	}
 }
 
-void	ft_map_check_validity(my_struct_t *my_struct)
+void	ft_map_check_validity(t_struct_t *my_struct)
 {
 	int	i;
 	int	j;
@@ -96,7 +91,7 @@ void	ft_map_check_validity(my_struct_t *my_struct)
 	}
 }
 
-void	check_free(my_struct_t *my_struct)
+void	check_free(t_struct_t *my_struct)
 {
 	ft_free_double_pointer(my_struct->mapcpy);
 	ft_free_double_pointer(my_struct->mapcpyup);
@@ -104,7 +99,7 @@ void	check_free(my_struct_t *my_struct)
 	ft_free_double_pointer(my_struct->mapcpyleft);
 }
 
-void	check_utilss(my_struct_t *my_struct, int i, int j)
+void	check_utilss(t_struct_t *my_struct, int i, int j)
 {
 	ft_map_check_left(my_struct, i, j);
 	ft_map_check_right(my_struct, i, j);

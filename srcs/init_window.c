@@ -12,7 +12,7 @@
 
 #include "../Include/cub3d.h"
 
-void	window_init(my_struct_t *s)
+void	window_init(t_struct_t *s)
 {
 	s->mlx_ptr = mlx_init();
 	mlx_get_screen_size(s->mlx_ptr, &s->sizex, &s->sizey);
@@ -41,7 +41,7 @@ void	window_init(my_struct_t *s)
 	}
 }
 
-void	replace_spawn(my_struct_t *s)
+void	replace_spawn(t_struct_t *s)
 {
 	int i;
 	int j;
@@ -66,7 +66,7 @@ void	replace_spawn(my_struct_t *s)
 	}
 }
 
-int		deal_key(int key, my_struct_t *s)
+int		deal_key(int key, t_struct_t *s)
 {
 	if (key == FORWARD)
 	{
@@ -92,7 +92,7 @@ int		deal_key(int key, my_struct_t *s)
 	return (0);
 }
 
-int		ft_exit(my_struct_t *s)
+int		ft_exit(t_struct_t *s)
 {
 	ft_free_s(s);
 	if (s->texture[0].img)
@@ -110,7 +110,7 @@ int		ft_exit(my_struct_t *s)
 	exit(0);
 }
 
-void	ft_wall(my_struct_t *s)
+void	ft_wall(t_struct_t *s)
 {
 	int i;
 	int j;

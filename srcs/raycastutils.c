@@ -12,7 +12,7 @@
 
 #include "../Include/cub3d.h"
 
-void	ray1(my_struct_t *s)
+void	ray1(t_struct_t *s)
 {
 	s->drawend = 0;
 	s->drawstart = 0;
@@ -38,7 +38,7 @@ void	ray1(my_struct_t *s)
 	}
 }
 
-void	ray2(my_struct_t *s)
+void	ray2(t_struct_t *s)
 {
 	while (s->hit == 0)
 	{
@@ -67,7 +67,7 @@ void	ray2(my_struct_t *s)
 						s->raydiry;
 }
 
-void	ray3(my_struct_t *s)
+void	ray3(t_struct_t *s)
 {
 	s->lineheight = (int)(s->height / s->perpwalldist);
 	s->drawstart = -s->lineheight / 2 + s->height / 2;
@@ -94,7 +94,7 @@ void	ray3(my_struct_t *s)
 		s->t.wallx = s->posx + s->perpwalldist * s->raydirx;
 }
 
-void	ray4(my_struct_t *s)
+void	ray4(t_struct_t *s)
 {
 	int g;
 	int j;

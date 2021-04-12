@@ -12,7 +12,7 @@
 
 #include "../Include/cub3d.h"
 
-void    ft_header(my_struct_t *s, int fd)
+void    ft_header(t_struct_t *s, int fd)
 {
     int tmp;
 
@@ -40,7 +40,7 @@ void    ft_header(my_struct_t *s, int fd)
 	write(fd, &tmp, 4);
 }
 
-void    ft_save(my_struct_t *s)
+void    ft_save(t_struct_t *s)
 {
     int fd;
     int x;
@@ -50,7 +50,7 @@ void    ft_save(my_struct_t *s)
     if ((fd = open("./image.bmp", O_CREAT | O_RDWR)) == -1)
         ft_putstr_fd("Error\nwith bmp file", 0);
     ft_header(s, fd);
-    ft_putnbr_fd(s->bpp, 0);
+    
     while (y >= 0)
     {
         x = 0;
@@ -58,6 +58,7 @@ void    ft_save(my_struct_t *s)
         {
             write(fd, &s->img_data[y * s->size_line / 4 + x], 4);
             x++;
+            ft_putnbr_fd(1, 0);
         }
         y--;
     }

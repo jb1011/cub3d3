@@ -33,7 +33,7 @@ void	check_error_util(char *str, t_check_error_t *checker)
 		checker->count--;
 }
 
-void	ft_freee22(my_struct_t *s)
+void	ft_freee22(t_struct_t *s)
 {
 	if (s->colortab)
 		ft_free_double_pointer_int(s);
@@ -45,7 +45,7 @@ void	ft_freee22(my_struct_t *s)
 		free(s->lines);
 }
 
-void	ft_create_image(my_struct_t *s)
+void	ft_create_image(t_struct_t *s)
 {
 	s->x = 0;
 	s->y = 0;
@@ -54,9 +54,18 @@ void	ft_create_image(my_struct_t *s)
 		&s->size_line, &s->endian);
 }
 
-void	key_more_more(int key, my_struct_t *s)
+void	key_more_more(int key, t_struct_t *s)
 {
-	if (key == ROTATE_LEFT)
+	if (key == ROTATE_RIGHT)
+	{
+		s->olddirx = s->dirx;
+		s->dirx = s->dirx * cos(-ROTSPEED) - s->diry * sin(-ROTSPEED);
+		s->diry = s->olddirx * sin(-ROTSPEED) + s->diry * cos(-ROTSPEED);
+		s->oldplanx = s->planx;
+		s->planx = s->planx * cos(-ROTSPEED) - s->plany * sin(-ROTSPEED);
+		s->plany = s->oldplanx * sin(-ROTSPEED) + s->plany * cos(-ROTSPEED);
+	}
+	else if (key == ROTATE_LEFT)
 	{
 		s->olddirx = s->dirx;
 		s->dirx = s->dirx * cos(ROTSPEED) - s->diry * sin(ROTSPEED);

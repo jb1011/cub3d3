@@ -69,7 +69,7 @@ int		is_spawn(char c)
 	return (0);
 }
 
-void	ft_rgbconv(my_struct_t *s)
+void	ft_rgbconv(t_struct_t *s)
 {
 	s->hexaf = 256 * 256 * s->f_r + 256 * s->f_g + s->f_b;
 	s->hexac = 256 * 256 * s->c_r + 256 * s->c_g + s->c_b;

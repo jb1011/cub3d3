@@ -12,7 +12,7 @@
 
 #include "../Include/cub3d.h"
 
-void	ft_map_check_right(my_struct_t *my_struct, int i, int j)
+void	ft_map_check_right(t_struct_t *my_struct, int i, int j)
 {
 	int x;
 	int y;
@@ -27,7 +27,7 @@ void	ft_map_check_right(my_struct_t *my_struct, int i, int j)
 	}
 }
 
-void	map_malloc2(my_struct_t *my_struct, int i, int fd, char *str)
+void	map_malloc2(t_struct_t *my_struct, int i, int fd, char *str)
 {
 	int ret;
 
@@ -52,14 +52,14 @@ void	map_malloc2(my_struct_t *my_struct, int i, int fd, char *str)
 	free(str);
 }
 
-void	ft_map_malloc_3(my_struct_t *my_struct, int i, int fd, char *str)
+void	ft_map_malloc_3(t_struct_t *my_struct, int i, int fd, char *str)
 {
 	if (str[0] == '1' || str[0] == ' ' || str[0] == '0' || str[0] == '2')
 		i++;
 	map_malloc2(my_struct, i, fd, str);
 }
 
-void	ft_dis_order2(my_struct_t *s)
+void	ft_dis_order2(t_struct_t *s)
 {
 	int i;
 
@@ -73,7 +73,7 @@ void	ft_dis_order2(my_struct_t *s)
 	}
 }
 
-void	ft_dis_order(my_struct_t *s)
+void	ft_dis_order(t_struct_t *s)
 {
 	int		i;
 	double	tmp;

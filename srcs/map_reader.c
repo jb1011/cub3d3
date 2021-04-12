@@ -12,7 +12,7 @@
 
 #include "../Include/cub3d.h"
 
-void	ft_caller(my_struct_t *my_struct, t_check_error_t *checker)
+void	ft_caller(t_struct_t *my_struct, t_check_error_t *checker)
 {
 	int fd;
 
@@ -39,7 +39,7 @@ void	ft_caller(my_struct_t *my_struct, t_check_error_t *checker)
 	}
 }
 
-void	map_reader_check(my_struct_t *my_struct, int fd)
+void	map_reader_check(t_struct_t *my_struct, int fd)
 {
 	t_check_map_t map_checker;
 
@@ -47,7 +47,7 @@ void	map_reader_check(my_struct_t *my_struct, int fd)
 	ft_map_malloc(my_struct, fd, &map_checker);
 }
 
-void	ft_map_malloc(my_struct_t *my_struct, int fd, t_check_map_t *checker)
+void	ft_map_malloc(t_struct_t *my_struct, int fd, t_check_map_t *checker)
 {
 	int		i;
 	int		ret;
@@ -83,7 +83,7 @@ void	ft_init_check_map(t_check_map_t *map_checker)
 	map_checker->down_check = 0;
 }
 
-void	ft_check_error_map(my_struct_t *my_struct, t_check_map_t *map_checker)
+void	ft_check_error_map(t_struct_t *my_struct, t_check_map_t *map_checker)
 {
 	int i;
 

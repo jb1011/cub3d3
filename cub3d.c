@@ -12,7 +12,7 @@
 
 #include "Include/cub3d.h"
 
-void	ft_init_my_struct(my_struct_t *my_struct)
+void	ft_init_my_struct(t_struct_t *my_struct)
 {
 	my_struct->x = 0;
 	my_struct->y = 0;
@@ -36,7 +36,7 @@ void	ft_init_my_struct(my_struct_t *my_struct)
 	ft_init_2(my_struct);
 }
 
-void	ft_init_2(my_struct_t *my_struct)
+void	ft_init_2(t_struct_t *my_struct)
 {
 	my_struct->sp.spriteheight = 0;
 	my_struct->sp.spritescreenx = 0;
@@ -87,7 +87,7 @@ void	ft_init_struct_check_error(t_check_error_t *check_error)
 
 int		main(int argc, char **argv)
 {
-	my_struct_t		my_struct;
+	t_struct_t		my_struct;
 	t_check_error_t	checker;
 
 	my_struct.saved = 0;

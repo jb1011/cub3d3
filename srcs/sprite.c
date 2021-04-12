@@ -12,7 +12,7 @@
 
 #include "../Include/cub3d.h"
 
-void	ft_calc(my_struct_t *s, int i)
+void	ft_calc(t_struct_t *s, int i)
 {
 	s->sp.spritex = s->c[s->sp.order[i]].x - s->posx;
 	s->sp.spritey = s->c[s->sp.order[i]].y - s->posy;
@@ -40,7 +40,7 @@ void	ft_calc(my_struct_t *s, int i)
 		s->sp.drawendx = s->width;
 }
 
-void	ft_draw_spr(my_struct_t *s, int y, int texx, int stripe)
+void	ft_draw_spr(t_struct_t *s, int y, int texx, int stripe)
 {
 	int d;
 	int texy;
@@ -59,7 +59,7 @@ void	ft_draw_spr(my_struct_t *s, int y, int texx, int stripe)
 	}
 }
 
-int		ft_sprite(my_struct_t *s)
+int		ft_sprite(t_struct_t *s)
 {
 	int i;
 	int y;
@@ -88,7 +88,7 @@ int		ft_sprite(my_struct_t *s)
 	return (0);
 }
 
-int		ft_init_sprite(my_struct_t *s)
+int		ft_init_sprite(t_struct_t *s)
 {
 	int j;
 
@@ -105,7 +105,7 @@ int		ft_init_sprite(my_struct_t *s)
 	return (1);
 }
 
-void	ft_init_sprite2(my_struct_t *s, int i, int j, int v)
+void	ft_init_sprite2(t_struct_t *s, int i, int j, int v)
 {
 	while (s->map[j])
 	{
@@ -114,8 +114,8 @@ void	ft_init_sprite2(my_struct_t *s, int i, int j, int v)
 		{
 			if (s->map[j][i] == '2')
 			{
-				s->c[v].x = (double)i + 0.5;
-				s->c[v].y = (double)j + 0.5;
+				s->c[v].y = (double)i + 0.5;
+				s->c[v].x = (double)j + 0.5;
 				v++;
 			}
 			i++;

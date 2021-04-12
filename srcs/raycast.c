@@ -12,7 +12,7 @@
 
 #include "../Include/cub3d.h"
 
-void	init_t_ray(my_struct_t *s)
+void	init_t_ray(t_struct_t *s)
 {
 	s->rayx = 0;
 	s->dirx = 0;
@@ -40,7 +40,7 @@ void	init_t_ray(my_struct_t *s)
 	s->sidehits = malloc(sizeof(int *) * s->width + 1);
 }
 
-void	init_colortab(my_struct_t *s)
+void	init_colortab(t_struct_t *s)
 {
 	int i;
 
@@ -65,7 +65,7 @@ void	init_colortab(my_struct_t *s)
 	}
 }
 
-void	init_dir(my_struct_t *s)
+void	init_dir(t_struct_t *s)
 {
 	if (s->spawn.type == 'N')
 	{
@@ -84,7 +84,7 @@ void	init_dir(my_struct_t *s)
 	init_dir2(s);
 }
 
-void	init_dir2(my_struct_t *s)
+void	init_dir2(t_struct_t *s)
 {
 	if (s->spawn.type == 'E')
 	{
@@ -102,7 +102,7 @@ void	init_dir2(my_struct_t *s)
 	}
 }
 
-int		ft_raycaster(my_struct_t *s)
+int		ft_raycaster(t_struct_t *s)
 {
 	s->rayx = 0;
 	while (s->rayx < s->width)

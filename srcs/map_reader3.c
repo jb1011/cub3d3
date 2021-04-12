@@ -12,7 +12,7 @@
 
 #include "../Include/cub3d.h"
 
-void	ft_map_check_down(my_struct_t *my_struct, int i, int j)
+void	ft_map_check_down(t_struct_t *my_struct, int i, int j)
 {
 	int x;
 	int y;
@@ -33,7 +33,7 @@ void	ft_map_check_down(my_struct_t *my_struct, int i, int j)
 	}
 }
 
-int		ft_check_for_spaces(my_struct_t *my_struct)
+int		ft_check_for_spaces(t_struct_t *my_struct)
 {
 	int i;
 	int j;
@@ -62,7 +62,7 @@ int		ft_check_for_spaces(my_struct_t *my_struct)
 	return (1);
 }
 
-int		ft_check_for_spawn(my_struct_t *my_struct)
+int		ft_check_for_spawn(t_struct_t *my_struct)
 {
 	int i;
 	int j;
@@ -89,7 +89,7 @@ int		ft_check_for_spawn(my_struct_t *my_struct)
 	return (0);
 }
 
-int		ft_check_right_spawn(my_struct_t *my_struct)
+int		ft_check_right_spawn(t_struct_t *my_struct)
 {
 	int i;
 	int j;
@@ -118,7 +118,7 @@ int		ft_check_right_spawn(my_struct_t *my_struct)
 	return (1);
 }
 
-int		ft_check_garbage(my_struct_t *my_struct)
+int		ft_check_garbage(t_struct_t *my_struct)
 {
 	int i;
 	int j;

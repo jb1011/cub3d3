@@ -238,111 +238,111 @@ typedef struct	s_check_map_s
 	int			down_check;
 }				t_check_map_t;
 
-void			ft_caller(my_struct_t *my_struct, t_check_error_t *checker);
-void			map_reader_check(my_struct_t *my_struct, int fd);
+void			ft_caller(t_struct_t *my_struct, t_check_error_t *checker);
+void			map_reader_check(t_struct_t *my_struct, int fd);
 int				get_next_line(int fd, char **line);
 void			pixel_put(char *str);
 char			**ft_tabcpy(char **map);
 int				ft_tablen(char **map);
-void			ft_display_pixel(char *str, my_struct_t *my_struct);
-void			ft_resolution(t_check_error_t *checker, my_struct_t *my_struct);
-void			ft_check_error(my_struct_t *my_struct, t_check_error_t *checker,
+void			ft_display_pixel(char *str, t_struct_t *my_struct);
+void			ft_resolution(t_check_error_t *checker, t_struct_t *my_struct);
+void			ft_check_error(t_struct_t *my_struct, t_check_error_t *checker,
 					int fd);
 void			ft_parser_error(t_check_error_t *checker,
-					my_struct_t *my_struct);
-void			ft_init_my_struct(my_struct_t *my_struct);
+					t_struct_t *my_struct);
+void			ft_init_my_struct(t_struct_t *my_struct);
 int				ft_count(char const *s, char c);
 void			ft_floor_check(t_check_error_t *checker,
-					my_struct_t *my_struct);
+					t_struct_t *my_struct);
 void			ft_ceiling_check(t_check_error_t *checker,
-					my_struct_t *my_struct);
+					t_struct_t *my_struct);
 int				is_rgb(int i);
 void			ft_init_struct_check_error(t_check_error_t *check_error);
 int				ft_strcmp(char *s1, char *s2);
-void			ft_check_path(t_check_error_t *checker, my_struct_t *my_struct);
+void			ft_check_path(t_check_error_t *checker, t_struct_t *my_struct);
 void			ft_check_path_s(t_check_error_t *checker,
-					my_struct_t *my_struct);
+					t_struct_t *my_struct);
 int				ft_path_compare(char *s1);
-void			ft_map_malloc(my_struct_t *my_struct, int fd,
+void			ft_map_malloc(t_struct_t *my_struct, int fd,
 					t_check_map_t *checker);
-void			ft_check_error_map(my_struct_t *my_struct,
+void			ft_check_error_map(t_struct_t *my_struct,
 					t_check_map_t *map_checker);
 int				ft_tab_len(char **tab);
-void			ft_map_opener(my_struct_t *my_struct);
+void			ft_map_opener(t_struct_t *my_struct);
 void			ft_init_check_map(t_check_map_t *map_checker);
-void			ft_map_line_check(my_struct_t *my_struct,
+void			ft_map_line_check(t_struct_t *my_struct,
 					t_check_map_t *map_checker);
-void			ft_map_check_validity(my_struct_t *my_struct);
-void			ft_map_check_left(my_struct_t *my_struct, int i, int j);
-void			ft_map_check_right(my_struct_t *my_struct, int i, int j);
-void			ft_map_check_up(my_struct_t *my_struct, int i, int j);
-void			ft_map_check_down(my_struct_t *my_struct, int i, int j);
+void			ft_map_check_validity(t_struct_t *my_struct);
+void			ft_map_check_left(t_struct_t *my_struct, int i, int j);
+void			ft_map_check_right(t_struct_t *my_struct, int i, int j);
+void			ft_map_check_up(t_struct_t *my_struct, int i, int j);
+void			ft_map_check_down(t_struct_t *my_struct, int i, int j);
 void			ft_display_map(char **tab);
 int				ft_check_for_0(char **tab);
-int				ft_check_for_spaces(my_struct_t *my_struct);
-int				ft_check_right_spawn(my_struct_t *my_struct);
-int				ft_check_for_spawn(my_struct_t *my_struct);
-int				ft_check_garbage(my_struct_t *my_struct);
-void			window_init(my_struct_t *s);
-void			display_map(my_struct_t *s);
-void			replace_spawn(my_struct_t *s);
-void			ft_fill_inside(my_struct_t *s, int color);
-void			ft_place_player(my_struct_t *s);
+int				ft_check_for_spaces(t_struct_t *my_struct);
+int				ft_check_right_spawn(t_struct_t *my_struct);
+int				ft_check_for_spawn(t_struct_t *my_struct);
+int				ft_check_garbage(t_struct_t *my_struct);
+void			window_init(t_struct_t *s);
+void			display_map(t_struct_t *s);
+void			replace_spawn(t_struct_t *s);
+void			ft_fill_inside(t_struct_t *s, int color);
+void			ft_place_player(t_struct_t *s);
 int				is_spawn(char c);
-void			ft_create_image(my_struct_t *s);
-void			ft_fill_image(my_struct_t *s);
-void			put_pixel(my_struct_t *s, int x, int y, int color);
-int				deal_key(int key, my_struct_t *s);
+void			ft_create_image(t_struct_t *s);
+void			ft_fill_image(t_struct_t *s);
+void			put_pixel(t_struct_t *s, int x, int y, int color);
+int				deal_key(int key, t_struct_t *s);
 void			ft_free_check_error(t_check_error_t *checker);
 void			ft_free_double_pointer(char **tab);
-void			ray_manager(my_struct_t *s);
-void			init_dir(my_struct_t *s);
-void			init_t_ray(my_struct_t *s);
-int				ft_raycaster(my_struct_t *s);
-void			ft_wall(my_struct_t *s);
-void			get_text(my_struct_t *s);
-void			ft_raycast_floor(my_struct_t *s);
-void			draw_text(my_struct_t *s, int x, int y);
-void			init_num_text(my_struct_t *s);
-void			put_text_col(my_struct_t *s);
-int				raycast_manager(my_struct_t *s);
-void			ft_rgbconv(my_struct_t *s);
-void			ft_free_double_pointer_int(my_struct_t *s);
-void			ft_free_s(my_struct_t *s);
-void			ft_dis_order2(my_struct_t *s);
-void			ft_dis_order(my_struct_t *s);
-void			ft_calc(my_struct_t *s, int i);
-int				ft_sprite(my_struct_t *s);
-void			ft_count_2(my_struct_t *s);
-int				ft_init_sprite(my_struct_t *s);
-void			ft_init_sprite2(my_struct_t *s, int i, int j, int v);
-int				ft_exit(my_struct_t *s);
-void			init_colortab(my_struct_t *s);
-void			ft_init_2(my_struct_t *my_struct);
+void			ray_manager(t_struct_t *s);
+void			init_dir(t_struct_t *s);
+void			init_t_ray(t_struct_t *s);
+int				ft_raycaster(t_struct_t *s);
+void			ft_wall(t_struct_t *s);
+void			get_text(t_struct_t *s);
+void			ft_raycast_floor(t_struct_t *s);
+void			draw_text(t_struct_t *s, int x, int y);
+void			init_num_text(t_struct_t *s);
+void			put_text_col(t_struct_t *s);
+int				raycast_manager(t_struct_t *s);
+void			ft_rgbconv(t_struct_t *s);
+void			ft_free_double_pointer_int(t_struct_t *s);
+void			ft_free_s(t_struct_t *s);
+void			ft_dis_order2(t_struct_t *s);
+void			ft_dis_order(t_struct_t *s);
+void			ft_calc(t_struct_t *s, int i);
+int				ft_sprite(t_struct_t *s);
+void			ft_count_2(t_struct_t *s);
+int				ft_init_sprite(t_struct_t *s);
+void			ft_init_sprite2(t_struct_t *s, int i, int j, int v);
+int				ft_exit(t_struct_t *s);
+void			init_colortab(t_struct_t *s);
+void			ft_init_2(t_struct_t *my_struct);
 void			ft_ceiling_util(t_check_error_t *checker);
 void			check_error_util(char *str, t_check_error_t *checker);
 void			ft_freee(t_check_error_t *checker);
-void			ft_freee22(my_struct_t *s);
+void			ft_freee22(t_struct_t *s);
 void			ft_check_path2(t_check_error_t *checker,
-					my_struct_t *my_struct);
+					t_struct_t *my_struct);
 void			ft_check_path1(t_check_error_t *checker,
-					my_struct_t *my_struct);
-void			key_more(int key, my_struct_t *s);
-void			key_more_more(int key, my_struct_t *s);
-void			ft_wall2(int j, int color, int i, my_struct_t *s);
-void			check_validity_2(my_struct_t *my_struct, int i, int j, int res);
-void			check_utilss(my_struct_t *my_struct, int i, int j);
-void			check_free(my_struct_t *my_struct);
-void			ft_put_less(my_struct_t *my_struct, t_check_map_t *map_checker);
-void			map_malloc2(my_struct_t *my_struct, int i, int fd, char *str);
-void			ft_map_malloc_3(my_struct_t *my_struct, int i,
+					t_struct_t *my_struct);
+void			key_more(int key, t_struct_t *s);
+void			key_more_more(int key, t_struct_t *s);
+void			ft_wall2(int j, int color, int i, t_struct_t *s);
+void			check_validity_2(t_struct_t *my_struct, int i, int j, int res);
+void			check_utilss(t_struct_t *my_struct, int i, int j);
+void			check_free(t_struct_t *my_struct);
+void			ft_put_less(t_struct_t *my_struct, t_check_map_t *map_checker);
+void			map_malloc2(t_struct_t *my_struct, int i, int fd, char *str);
+void			ft_map_malloc_3(t_struct_t *my_struct, int i,
 					int fd, char *str);
-void			ray1(my_struct_t *s);
-void			ray2(my_struct_t *s);
-void			ray3(my_struct_t *s);
-void			ray4(my_struct_t *s);
-void			init_dir2(my_struct_t *s);
-void			ft_save(my_struct_t *s);
-void			ft_header(my_struct_t *s, int fd);
+void			ray1(t_struct_t *s);
+void			ray2(t_struct_t *s);
+void			ray3(t_struct_t *s);
+void			ray4(t_struct_t *s);
+void			init_dir2(t_struct_t *s);
+void			ft_save(t_struct_t *s);
+void			ft_header(t_struct_t *s, int fd);
 
 #endif

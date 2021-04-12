@@ -12,7 +12,7 @@
 
 #include "../Include/cub3d.h"
 
-void	get_text(my_struct_t *s)
+void	get_text(t_struct_t *s)
 {
 	if (!(s->texture[0].img = mlx_xpm_file_to_image(s->mlx_ptr, s->no,
 		&(s->texture[0].width), &(s->texture[0].height))))

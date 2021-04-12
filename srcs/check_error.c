@@ -12,7 +12,7 @@
 
 #include "../Include/cub3d.h"
 
-void	ft_check_error(my_struct_t *my_struct, t_check_error_t *checker, int fd)
+void	ft_check_error(t_struct_t *my_struct, t_check_error_t *checker, int fd)
 {
 	int		ret;
 	char	*str;
@@ -41,7 +41,7 @@ void	ft_check_error(my_struct_t *my_struct, t_check_error_t *checker, int fd)
 	ft_parser_error(checker, my_struct);
 }
 
-void	ft_parser_error(t_check_error_t *checker, my_struct_t *my_struct)
+void	ft_parser_error(t_check_error_t *checker, t_struct_t *my_struct)
 {
 	if (checker->r)
 		ft_resolution(checker, my_struct);
@@ -55,7 +55,7 @@ void	ft_parser_error(t_check_error_t *checker, my_struct_t *my_struct)
 		ft_check_path_s(checker, my_struct);
 }
 
-void	ft_resolution(t_check_error_t *checker, my_struct_t *my_struct)
+void	ft_resolution(t_check_error_t *checker, t_struct_t *my_struct)
 {
 	if (checker->r[0] == 'R')
 		checker->tab = ft_split(checker->r, ' ');
@@ -72,7 +72,7 @@ void	ft_resolution(t_check_error_t *checker, my_struct_t *my_struct)
 		printf("Error\ninvalid resolution number\n");
 }
 
-void	ft_floor_check(t_check_error_t *checker, my_struct_t *my_struct)
+void	ft_floor_check(t_check_error_t *checker, t_struct_t *my_struct)
 {
 	char *tmp;
 
@@ -99,7 +99,7 @@ void	ft_floor_check(t_check_error_t *checker, my_struct_t *my_struct)
 		printf("Error\nfloor color is invalid\n");
 }
 
-void	ft_ceiling_check(t_check_error_t *checker, my_struct_t *my_struct)
+void	ft_ceiling_check(t_check_error_t *checker, t_struct_t *my_struct)
 {
 	if (checker->c[0] == 'C')
 	{

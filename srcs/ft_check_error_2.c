@@ -12,7 +12,7 @@
 
 #include "../Include/cub3d.h"
 
-void	ft_check_path(t_check_error_t *checker, my_struct_t *my_struct)
+void	ft_check_path(t_check_error_t *checker, t_struct_t *my_struct)
 {
 	if (checker->no && checker->so && checker->we && checker->ea)
 	{
@@ -34,7 +34,7 @@ void	ft_check_path(t_check_error_t *checker, my_struct_t *my_struct)
 		printf("Error\npath missing\n");
 }
 
-void	ft_check_path1(t_check_error_t *checker, my_struct_t *my_struct)
+void	ft_check_path1(t_check_error_t *checker, t_struct_t *my_struct)
 {
 	checker->tab4 = ft_split(checker->no, ' ');
 	if (ft_path_compare(checker->tab4[1]) == 1)
@@ -49,7 +49,7 @@ void	ft_check_path1(t_check_error_t *checker, my_struct_t *my_struct)
 	}
 }
 
-void	ft_check_path2(t_check_error_t *checker, my_struct_t *my_struct)
+void	ft_check_path2(t_check_error_t *checker, t_struct_t *my_struct)
 {
 	checker->tab7 = ft_split(checker->we, ' ');
 	if (ft_path_compare(checker->tab7[1]) == 1)
@@ -75,7 +75,7 @@ void	ft_check_path2(t_check_error_t *checker, my_struct_t *my_struct)
 	}
 }
 
-void	ft_check_path_s(t_check_error_t *checker, my_struct_t *my_struct)
+void	ft_check_path_s(t_check_error_t *checker, t_struct_t *my_struct)
 {
 	checker->tab5 = ft_split(checker->s, ' ');
 	if (ft_strcmp("./textures/tonneau.xpm", checker->tab5[1]) == 0)

@@ -18,7 +18,7 @@ void	key_more(int key, t_struct_t *s)
 	{
 		if (((s->map[(int)(s->posx)][(int)(s->posy + s->dirx * SPEED)] == '0')
 		|| (s->map[(int)(s->posx)][(int)(s->posy + s->dirx * SPEED)] == '2'))
-	&& (s->map[(int)(s->posx)][(int)(s->posy + 0.3 + s->dirx * SPEED)] != '1'))
+	&& (s->map[(int)(s->posx)][(int)(s->posy - 0.3 + s->dirx * SPEED)] != '1'))
 			s->posy -= s->dirx * SPEED;
 		if (((s->map[(int)(s->posx + s->diry * SPEED)][(int)(s->posy)] == '0')
 		|| (s->map[(int)(s->posx + s->diry * SPEED)][(int)(s->posy)] == '2'))
@@ -29,7 +29,7 @@ void	key_more(int key, t_struct_t *s)
 	{
 		if (((s->map[(int)(s->posx)][(int)(s->posy - s->dirx * SPEED)] == '0')
 		|| (s->map[(int)(s->posx)][(int)(s->posy - s->dirx * SPEED)] == '2'))
-	&& (s->map[(int)(s->posx)][(int)(s->posy - 0.3 - s->dirx * SPEED)] != '1'))
+	&& (s->map[(int)(s->posx)][(int)(s->posy + 0.3 - s->dirx * SPEED)] != '1'))
 			s->posy += s->dirx * SPEED;
 		if (((s->map[(int)(s->posx - s->diry * SPEED)][(int)(s->posy)] == '0')
 		|| (s->map[(int)(s->posx - s->diry * SPEED)][(int)(s->posy)] == '2'))

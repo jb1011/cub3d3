@@ -27,16 +27,16 @@ void	window_init(t_struct_t *s)
 	init_dir(s);
 	get_text(s);
 	ft_init_sprite(s);
-	mlx_hook(s->win_ptr, 33, 1L << 17, ft_exit, s);
-	mlx_hook(s->win_ptr, 2, 1L << 0, deal_key, s);
-	mlx_loop_hook(s->mlx_ptr, ft_raycaster, s);
 	if (s->saved == 0)
+	{
+		mlx_hook(s->win_ptr, 33, 1L << 17, ft_exit, s);
+		mlx_hook(s->win_ptr, 2, 1L << 0, deal_key, s);
+		mlx_loop_hook(s->mlx_ptr, ft_raycaster, s);
 		mlx_loop(s->mlx_ptr);
+	}
 	else
 	{
 		ft_raycaster(s);
-		// ft_putnbr_fd(s->saved, 0);
-		// ft_save(s);
 		exit(0);
 	}
 }
@@ -129,8 +129,9 @@ void	ft_wall(t_struct_t *s)
 		i++;
 	}
 	ft_sprite(s);
-	mlx_put_image_to_window(s->mlx_ptr, s->win_ptr, s->img_ptr, 0, 0);
-	if ((s->saved != 0))
+	if (s->saved == 0)
+		mlx_put_image_to_window(s->mlx_ptr, s->win_ptr, s->img_ptr, 0, 0);
+	if (s->saved != 0)
 		ft_save(s);
 	mlx_destroy_image(s->mlx_ptr, s->img_ptr);
 }

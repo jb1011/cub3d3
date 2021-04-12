@@ -58,7 +58,6 @@ void    ft_save(t_struct_t *s)
         {
             write(fd, &s->img_data[y * s->size_line / 4 + x], 4);
             x++;
-            ft_putnbr_fd(1, 0);
         }
         y--;
     }

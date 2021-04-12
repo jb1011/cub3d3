@@ -36,7 +36,7 @@ void	window_init(t_struct_t *s)
 	{
 		ft_raycaster(s);
 		// ft_putnbr_fd(s->saved, 0);
-		ft_save(s);
+		// ft_save(s);
 		exit(0);
 	}
 }
@@ -130,5 +130,7 @@ void	ft_wall(t_struct_t *s)
 	}
 	ft_sprite(s);
 	mlx_put_image_to_window(s->mlx_ptr, s->win_ptr, s->img_ptr, 0, 0);
+	if ((s->saved != 0))
+		ft_save(s);
 	mlx_destroy_image(s->mlx_ptr, s->img_ptr);
 }

@@ -46,11 +46,10 @@ void    ft_save(t_struct_t *s)
     int x;
     int y;
 
-    y = s->height;
-    if ((fd = open("./image.bmp", O_CREAT | O_RDWR)) == -1)
+    if ((fd = open("image.bmp", O_CREAT | O_WRONLY | O_TRUNC, S_IRWXU)) == -1)
         ft_putstr_fd("Error\nwith bmp file", 0);
     ft_header(s, fd);
-    
+    y = s->height;
     while (y >= 0)
     {
         x = 0;

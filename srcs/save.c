@@ -46,7 +46,7 @@ void	ft_save(t_struct_t *s)
 	int	x;
 	int	y;
 
-	if ((fd = open("image.bmp", O_CREAT | O_WRONLY | O_TRUNC, S_IRWXU)) == -1)
+	if ((fd = open("save.bmp", O_CREAT | O_WRONLY | O_TRUNC, S_IRWXU)) == -1)
 		ft_putstr_fd("Error\nwith bmp file", 0);
 	ft_header(s, fd);
 	y = s->height;
@@ -60,5 +60,5 @@ void	ft_save(t_struct_t *s)
 		}
 		y--;
 	}
-	system("chmod 777 image.bmp");
+	system("chmod 777 save.bmp");
 }

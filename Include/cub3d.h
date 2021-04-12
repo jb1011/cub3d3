@@ -21,20 +21,13 @@
 
 # define ROTSPEED 0.1
 
-// # define ROTATE_LEFT 65361
-// # define ROTATE_RIGHT 65363
-// # define FORWARD 119
-// # define BACK 115
-// # define RIGHT 100
-// # define LEFT 97
-# define ESCAPE 65307
-
 # define ROTATE_LEFT 65361
 # define ROTATE_RIGHT 65363
-# define FORWARD 122
+# define FORWARD 119
 # define BACK 115
 # define RIGHT 100
-# define LEFT 113
+# define LEFT 97
+# define ESCAPE 65307
 
 # include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
@@ -344,5 +337,7 @@ void			ray4(t_struct_t *s);
 void			init_dir2(t_struct_t *s);
 void			ft_save(t_struct_t *s);
 void			ft_header(t_struct_t *s, int fd);
+void			ft_main2(t_check_error_t *checker, t_struct_t *my_struct,
+					int argc, char **argv);
 
 #endif

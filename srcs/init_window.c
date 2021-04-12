@@ -30,7 +30,15 @@ void	window_init(my_struct_t *s)
 	mlx_hook(s->win_ptr, 33, 1L << 17, ft_exit, s);
 	mlx_hook(s->win_ptr, 2, 1L << 0, deal_key, s);
 	mlx_loop_hook(s->mlx_ptr, ft_raycaster, s);
-	mlx_loop(s->mlx_ptr);
+	if (s->saved == 0)
+		mlx_loop(s->mlx_ptr);
+	else
+	{
+		ft_raycaster(s);
+		// ft_putnbr_fd(s->saved, 0);
+		ft_save(s);
+		exit(0);
+	}
 }
 
 void	replace_spawn(my_struct_t *s)

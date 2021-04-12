@@ -60,6 +60,7 @@ void	ft_init_2(my_struct_t *my_struct)
 	my_struct->we = NULL;
 	my_struct->ea = NULL;
 	my_struct->colortab = 0;
+	my_struct->save = NULL;
 }
 
 void	ft_init_struct_check_error(t_check_error_t *check_error)
@@ -89,16 +90,49 @@ int		main(int argc, char **argv)
 	my_struct_t		my_struct;
 	t_check_error_t	checker;
 
+	my_struct.saved = 0;
 	if (argc > 3 || argc < 2)
 		printf("Error\nwrong number of argument\n");
 	else
 	{
 		my_struct.doc = argv[1];
-		if (ft_strcmp(my_struct.doc, "map/map.cub") == 0)
+		if (argc == 3 && ft_strcmp(argv[2], "--save") == 0)
 		{
+			my_struct.saved = 1;
+			my_struct.save = argv[2];
 			ft_init_struct_check_error(&checker);
 			ft_init_my_struct(&my_struct);
 			ft_caller(&my_struct, &checker);
 		}
+		else if (argc == 3 && ft_strcmp(argv[2], "--save") != 0)
+		{
+			ft_putstr_fd("Error\ntypo in --save", 0);
+			return (0);
+		}
+		else if (ft_strcmp(my_struct.doc, "map/map.cub") == 0 && argc == 2)
+		{
+			my_struct.saved = 0;
+			ft_init_struct_check_error(&checker);
+			ft_init_my_struct(&my_struct);
+			ft_caller(&my_struct, &checker);
+		}
+		else
+			ft_putstr_fd("Error\nwrong map file", 0);
 	}
+	// else if (argc == 3)
+	// {
+	// 	my_struct.doc = argv[1];
+	// 	my_struct.save = argv[2];
+	// 	if (ft_strcmp(my_struct.save, "--save") == 0)
+	// 	{
+	// 		ft_init_struct_check_error(&checker);
+	// 		ft_init_my_struct(&my_struct);
+	// 		fd = open(my_struct.doc, O_RDONLY);
+	// 		ft_check_error(&my_struct, &checker, fd);
+	// 		// ft_caller(&my_struct, &checker);
+	// 		ft_putstr_fd("file", 0);
+
+	// 		ft_save(&my_struct);
+	// 	}
+	// }
 }

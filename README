@@ -1,1 +1,4 @@
-gcc -I /usr/local/include -L /usr/local/lib/ -lmlx -framework OpenGl -framework Appkit libft/libft.a srcs/*.c
+Pour lancer le programme (uniquement sous linux) :
+make
+pour jouer : ./cub3D map/map.cub
+pour sauvegarder une image :  ./cub3D map/map.cub --save

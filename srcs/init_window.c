@@ -71,19 +71,23 @@ int		deal_key(int key, t_struct_t *s)
 	if (key == FORWARD)
 	{
 		if ((s->map[(int)(s->posx + s->dirx * SPEED)][(int)s->posy] == '0') ||
-			(s->map[(int)(s->posx + s->dirx * SPEED)][(int)s->posy] == '2'))
+			(s->map[(int)(s->posx + s->dirx * SPEED)][(int)s->posy] == '2') ||
+			(s->map[(int)s->posx][(int)(s->posy + s->diry * SPEED)] == '1'))
 			s->posx += s->dirx * SPEED;
 		if ((s->map[(int)s->posx][(int)(s->posy + s->diry * SPEED)] == '0') ||
-			(s->map[(int)s->posx][(int)(s->posy + s->diry * SPEED)] == '2'))
+			(s->map[(int)s->posx][(int)(s->posy + s->diry * SPEED)] == '2') ||
+			(s->map[(int)s->posx][(int)(s->posy + s->diry * SPEED)] == '1'))
 			s->posy += s->diry * SPEED;
 	}
 	else if (key == BACK)
 	{
 		if ((s->map[(int)(s->posx - s->dirx * SPEED)][(int)(s->posy)] == '0') ||
-			(s->map[(int)(s->posx - s->dirx * SPEED)][(int)(s->posy)] == '2'))
+			(s->map[(int)(s->posx - s->dirx * SPEED)][(int)(s->posy)] == '2') ||
+			(s->map[(int)(s->posx - s->dirx * SPEED)][(int)(s->posy)] == '1'))
 			s->posx -= s->dirx * SPEED;
 		if ((s->map[(int)(s->posx)][(int)(s->posy - s->diry * SPEED)] == '0') ||
-			(s->map[(int)(s->posx)][(int)(s->posy - s->diry * SPEED)] == '2'))
+			(s->map[(int)(s->posx)][(int)(s->posy - s->diry * SPEED)] == '2') ||
+			(s->map[(int)(s->posx)][(int)(s->posy - s->diry * SPEED)] == '1'))
 			s->posy -= s->diry * SPEED;
 	}
 	key_more(key, s);

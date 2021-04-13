@@ -58,12 +58,17 @@ void	ft_map_malloc(t_struct_t *my_struct, int fd, t_check_map_t *checker)
 	{
 		if (str[0] == '1' || str[0] == ' ' || str[0] == '0' || str[0] == '2')
 			i++;
-		else if (str[0] == 0)
+		else if (is_map(str[0]) == 0 || str[0] == 0)
 		{
-			printf("Error\nempty line in map\n");
+			printf("Error\nError in map\n");
 			my_struct->error = 1;
 		}
 		free(str);
+	}
+	if (is_map(str[0]) == 0)
+	{
+		printf("Error\nError in map\n");
+		my_struct->error = 1;
 	}
 	if (my_struct->error == 0)
 	{
@@ -104,7 +109,7 @@ void	ft_check_error_map(t_struct_t *my_struct, t_check_map_t *map_checker)
 			my_struct->map[my_struct->last_columns][i] != ' ')
 		{
 			printf("Error\nlast line of map invalid\n");
-			map_checker->result_map--;
+			ft_put_less(my_struct, map_checker);
 			break ;
 		}
 		i++;

@@ -66,7 +66,7 @@ void	ft_resolution(t_check_error_t *checker, t_struct_t *my_struct)
 		my_struct->width = ft_atoi(checker->tab[1]);
 		my_struct->height = ft_atoi(checker->tab[2]);
 	}
-	if (my_struct->width >= 0 || my_struct->height >= 0)
+	if (my_struct->width > 0 && my_struct->height > 0)
 		checker->result += 1;
 	else
 		printf("Error\ninvalid resolution number\n");

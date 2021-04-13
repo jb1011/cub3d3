@@ -32,3 +32,10 @@ void	ft_count_2(t_struct_t *s)
 		j++;
 	}
 }
+
+int		is_map(char c)
+{
+	if (c == '1' || c == ' ' || c == '0' || c == '2' || c == 0)
+		return (1);
+	return (0);
+}

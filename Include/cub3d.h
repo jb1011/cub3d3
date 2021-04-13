@@ -339,5 +339,6 @@ void			ft_save(t_struct_t *s);
 void			ft_header(t_struct_t *s, int fd);
 void			ft_main2(t_check_error_t *checker, t_struct_t *my_struct,
 					int argc, char **argv);
+int				is_map(char c);
 
 #endif

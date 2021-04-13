@@ -309,7 +309,7 @@ int				ft_sprite(t_struct_t *s);
 void			ft_count_2(t_struct_t *s);
 int				ft_init_sprite(t_struct_t *s);
 void			ft_init_sprite2(t_struct_t *s, int i, int j, int v);
-int				ft_exit(t_struct_t *s);
+int				ft_exit(t_struct_t *s, int key);
 void			init_colortab(t_struct_t *s);
 void			ft_init_2(t_struct_t *my_struct);
 void			ft_ceiling_util(t_check_error_t *checker);

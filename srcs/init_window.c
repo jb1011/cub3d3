@@ -91,27 +91,30 @@ int		deal_key(int key, t_struct_t *s)
 			s->posy -= s->diry * SPEED;
 	}
 	key_more(key, s);
-	if (key == ESCAPE)
-		ft_exit(s);
+	ft_exit(s, key);
 	return (0);
 }
 
-int		ft_exit(t_struct_t *s)
+int		ft_exit(t_struct_t *s, int key)
 {
-	ft_free_s(s);
-	if (s->texture[0].img)
-		mlx_destroy_image(s->mlx_ptr, s->texture[0].img);
-	if (s->texture[1].img)
-		mlx_destroy_image(s->mlx_ptr, s->texture[1].img);
-	if (s->texture[2].img)
-		mlx_destroy_image(s->mlx_ptr, s->texture[2].img);
-	if (s->texture[3].img)
-		mlx_destroy_image(s->mlx_ptr, s->texture[3].img);
-	if (s->texture[4].img)
-		mlx_destroy_image(s->mlx_ptr, s->texture[4].img);
-	mlx_destroy_display(s->mlx_ptr);
-	mlx_destroy_window(s->mlx_ptr, s->win_ptr);
-	exit(0);
+	if (key == ESCAPE)
+	{
+		ft_free_s(s);
+		if (s->texture[0].img)
+			mlx_destroy_image(s->mlx_ptr, s->texture[0].img);
+		if (s->texture[1].img)
+			mlx_destroy_image(s->mlx_ptr, s->texture[1].img);
+		if (s->texture[2].img)
+			mlx_destroy_image(s->mlx_ptr, s->texture[2].img);
+		if (s->texture[3].img)
+			mlx_destroy_image(s->mlx_ptr, s->texture[3].img);
+		if (s->texture[4].img)
+			mlx_destroy_image(s->mlx_ptr, s->texture[4].img);
+		mlx_destroy_display(s->mlx_ptr);
+		mlx_destroy_window(s->mlx_ptr, s->win_ptr);
+		exit(0);
+	}
+	return (0);
 }
 
 void	ft_wall(t_struct_t *s)

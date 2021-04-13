@@ -20,8 +20,8 @@ void	ray1(t_struct_t *s)
 	s->camerax = 2 * s->rayx / (double)s->width - 1;
 	s->raydirx = s->dirx + s->planx * s->camerax;
 	s->raydiry = s->diry + s->plany * s->camerax;
-	s->mapx = (int)s->posx;
-	s->mapy = (int)s->posy;
+	s->mapx = (int)s->posx + 0.5;
+	s->mapy = (int)s->posy + 0.5;
 	s->deltadistx = sqrt(1 + (s->raydiry * s->raydiry) /
 								(s->raydirx * s->raydirx));
 	s->deltadisty = sqrt(1 + (s->raydirx * s->raydirx) /

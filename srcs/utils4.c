@@ -29,7 +29,8 @@ void	key_more(int key, t_struct_t *s)
 			s->posx -= s->diry * SPEED;
 	}
 	key_more_more(key, s);
-	if (s->map[(int)(s->posx)][(int)(s->posy)] == '1')
+	if (s->map[(int)(s->posx)][(int)(s->posy)] == '1' ||
+	s->map[(int)(s->posx)][(int)(s->posy)] == '2')
 	{
 		s->posx = s->spawn.y;
 		s->posy = s->spawn.x;

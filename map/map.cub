@@ -1,4 +1,4 @@
-R 100000 100000000
+R 500 500
 NO ./textures/wood.xpm
 
 SO ./textures/metal.xpm

@@ -59,10 +59,7 @@ void	ft_map_malloc(t_struct_t *my_struct, int fd, t_check_map_t *checker)
 		if (str[0] == '1' || str[0] == ' ' || str[0] == '0' || str[0] == '2')
 			i++;
 		else if (is_map(str[0]) == 0 || str[0] == 0)
-		{
-			printf("Error\nError in map\n");
-			my_struct->error = 1;
-		}
+			ft_call_f(my_struct);
 		free(str);
 	}
 	if (is_map(str[0]) == 0)

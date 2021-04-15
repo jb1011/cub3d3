@@ -39,3 +39,9 @@ int		is_map(char c)
 		return (1);
 	return (0);
 }
+
+void	ft_call_f(t_struct_t *my_struct)
+{
+	printf("Error\nError in map\n");
+	my_struct->error = 1;
+}

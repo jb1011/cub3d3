@@ -341,5 +341,6 @@ void			ft_main2(t_check_error_t *checker, t_struct_t *my_struct,
 					int argc, char **argv);
 int				is_map(char c);
 void			ft_call_f(t_struct_t *my_struct);
+int				ft_exit2(t_struct_t *s);
 
 #endif

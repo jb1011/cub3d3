@@ -29,7 +29,7 @@ void	window_init(t_struct_t *s)
 	ft_init_sprite(s);
 	if (s->saved == 0)
 	{
-		mlx_hook(s->win_ptr, 33, 1L << 17, ft_exit, s);
+		mlx_hook(s->win_ptr, 33, 1L << 17, ft_exit2, s);
 		mlx_hook(s->win_ptr, 2, 1L << 0, deal_key, s);
 		mlx_loop_hook(s->mlx_ptr, ft_raycaster, s);
 		mlx_loop(s->mlx_ptr);

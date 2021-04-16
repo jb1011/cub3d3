@@ -45,3 +45,21 @@ void	ft_call_f(t_struct_t *my_struct)
 	printf("Error\nError in map\n");
 	my_struct->error = 1;
 }
+
+int		ft_exit2(t_struct_t *s)
+{
+	ft_free_s(s);
+	if (s->texture[0].img)
+		mlx_destroy_image(s->mlx_ptr, s->texture[0].img);
+	if (s->texture[1].img)
+		mlx_destroy_image(s->mlx_ptr, s->texture[1].img);
+	if (s->texture[2].img)
+		mlx_destroy_image(s->mlx_ptr, s->texture[2].img);
+	if (s->texture[3].img)
+		mlx_destroy_image(s->mlx_ptr, s->texture[3].img);
+	if (s->texture[4].img)
+		mlx_destroy_image(s->mlx_ptr, s->texture[4].img);
+	mlx_destroy_display(s->mlx_ptr);
+	mlx_destroy_window(s->mlx_ptr, s->win_ptr);
+	exit(0);
+}

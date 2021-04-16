@@ -16,7 +16,8 @@ void	ft_caller(t_struct_t *my_struct, t_check_error_t *checker)
 {
 	int fd;
 
-	fd = open(my_struct->doc, O_RDONLY);
+	if ((fd = open(my_struct->doc, O_RDONLY)) == -1)
+		ft_putstr_fd("Error\nfile could not open", 0);
 	ft_check_error(my_struct, checker, fd);
 	if (checker->result == 8 && checker->count == 8)
 	{

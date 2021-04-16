@@ -101,6 +101,8 @@ void	ft_main2(t_check_error_t *checker, t_struct_t *my_struct,
 			int argc, char **argv)
 {
 	my_struct->doc = argv[1];
+	if (ft_check_cub(my_struct) == 0)
+		return ;
 	if (argc == 3 && ft_strcmp(argv[2], "--save") == 0)
 	{
 		my_struct->saved = 1;
@@ -114,7 +116,7 @@ void	ft_main2(t_check_error_t *checker, t_struct_t *my_struct,
 		ft_putstr_fd("Error\ntypo in --save", 0);
 		return ;
 	}
-	else if (ft_strcmp(my_struct->doc, "map/map.cub") == 0 && argc == 2)
+	else if (argc == 2)
 	{
 		my_struct->saved = 0;
 		ft_init_struct_check_error(checker);

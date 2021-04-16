@@ -342,5 +342,8 @@ void			ft_main2(t_check_error_t *checker, t_struct_t *my_struct,
 int				is_map(char c);
 void			ft_call_f(t_struct_t *my_struct);
 int				ft_exit2(t_struct_t *s);
+int				ft_commas(char *str);
+void			ft_floor_utils(t_check_error_t *checker);
+int				ft_check_cub(t_struct_t *s);
 
 #endif

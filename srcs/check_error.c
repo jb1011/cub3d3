@@ -92,6 +92,8 @@ void	ft_floor_check(t_check_error_t *checker, t_struct_t *my_struct)
 		my_struct->f_g = ft_atoi(checker->tab2[1]);
 		my_struct->f_b = ft_atoi(checker->tab2[2]);
 	}
+	if (ft_commas(checker->f) == 0)
+		ft_floor_utils(checker);
 	if (is_rgb(my_struct->f_r) == 1 && is_rgb(my_struct->f_g) == 1 &&
 			is_rgb(my_struct->f_b) == 1)
 		checker->result += 1;

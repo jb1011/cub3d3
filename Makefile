@@ -10,7 +10,8 @@ srcs/utils2.c srcs/ft_check_error_2.c srcs/map_reader2.c \
 srcs/map_reader3.c srcs/init_window.c srcs/free.c \
 srcs/raycast.c srcs/texture.c srcs/sprite.c \
 srcs/utils3.c srcs/utils4.c srcs/utils5.c \
-srcs/raycastutils.c srcs/utils6.c srcs/save.c
+srcs/raycastutils.c srcs/utils6.c srcs/save.c \
+srcs/utils7.c
 
 PATH_SRCS = ./
 

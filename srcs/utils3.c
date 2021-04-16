@@ -21,6 +21,11 @@ void	ft_ceiling_util(t_check_error_t *checker)
 	checker->c = ft_strdup(tmp);
 	free(tmp);
 	checker->tab3 = ft_split(checker->c, ',');
+	if (ft_commas(checker->c) == 0)
+	{
+		checker->result -= 1;
+		printf("Error\ntoo many commas in ceiling\n");
+	}
 }
 
 void	check_error_util(char *str, t_check_error_t *checker)

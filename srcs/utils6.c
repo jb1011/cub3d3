@@ -63,3 +63,21 @@ int		ft_exit2(t_struct_t *s)
 	mlx_destroy_window(s->mlx_ptr, s->win_ptr);
 	exit(0);
 }
+
+int		ft_commas(char *str)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (str[i])
+	{
+		if (str[i] == ',')
+			count++;
+		i++;
+	}
+	if (count == 2)
+		return (1);
+	return (0);
+}

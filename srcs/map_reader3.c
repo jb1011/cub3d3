@@ -46,13 +46,13 @@ int		ft_check_for_spaces(t_struct_t *my_struct)
 		{
 			if (my_struct->mapcpy[j][i] == '0')
 			{
-				if (my_struct->mapcpy[j][i - 1] == ' ')
+				if (my_struct->mapcpy[j][i - 1] == ' ' || my_struct->mapcpy[j][i - 1] == 0)
 					return (0);
-				if (my_struct->mapcpy[j][i + 1] == ' ')
+				if (my_struct->mapcpy[j][i + 1] == ' ' || my_struct->mapcpy[j][i + 1] == 0)
 					return (0);
-				if (my_struct->mapcpy[j - 1][i] == ' ')
+				if (my_struct->mapcpy[j - 1][i] == ' ' || my_struct->mapcpy[j - 1][i] == 0)
 					return (0);
-				if (my_struct->mapcpy[j + 1][i] == ' ')
+				if (my_struct->mapcpy[j + 1][i] == ' ' || my_struct->mapcpy[j + 1][i] == 0)
 					return (0);
 			}
 			i++;

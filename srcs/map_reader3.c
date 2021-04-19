@@ -35,30 +35,28 @@ void	ft_map_check_down(t_struct_t *my_struct, int i, int j)
 
 int		ft_check_for_spaces(t_struct_t *my_struct)
 {
-	int j;
-
-	j = 0;
-	while (++j < my_struct->last_columns)
+	while (my_struct->j < my_struct->last_columns)
 	{
 		my_struct->i = -1;
-		while (my_struct->mapcpy[j][++my_struct->i])
+		while (my_struct->mapcpy[my_struct->j][++my_struct->i])
 		{
-			if (my_struct->mapcpy[j][ my_struct->i] == '0')
+			if (my_struct->mapcpy[my_struct->j][my_struct->i] == '0')
 			{
-				if (my_struct->mapcpy[j][ my_struct->i - 1] == ' ' ||
-					my_struct->mapcpy[j][ my_struct->i - 1] == 0)
+				if (my_struct->mapcpy[my_struct->j][my_struct->i - 1] == ' ' ||
+					my_struct->mapcpy[my_struct->j][my_struct->i - 1] == 0)
 					return (0);
-				if (my_struct->mapcpy[j][ my_struct->i + 1] == ' ' ||
-					my_struct->mapcpy[j][ my_struct->i + 1] == 0)
+				if (my_struct->mapcpy[my_struct->j][my_struct->i + 1] == ' ' ||
+					my_struct->mapcpy[my_struct->j][my_struct->i + 1] == 0)
 					return (0);
-				if (my_struct->mapcpy[j - 1][ my_struct->i] == ' ' ||
-					my_struct->mapcpy[j - 1][ my_struct->i] == 0)
+				if (my_struct->mapcpy[my_struct->j - 1][my_struct->i] == ' ' ||
+					my_struct->mapcpy[my_struct->j - 1][my_struct->i] == 0)
 					return (0);
-				if (my_struct->mapcpy[j + 1][ my_struct->i] == ' ' ||
-					my_struct->mapcpy[j + 1][ my_struct->i] == 0)
+				if (my_struct->mapcpy[my_struct->j + 1][my_struct->i] == ' ' ||
+					my_struct->mapcpy[my_struct->j + 1][my_struct->i] == 0)
 					return (0);
 			}
 		}
+		my_struct->j++;
 	}
 	return (1);
 }

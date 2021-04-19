@@ -32,6 +32,7 @@ void	ft_init_my_struct(t_struct_t *my_struct)
 	my_struct->error = 0;
 	my_struct->result_map = 0;
 	my_struct->sizex = 0;
+	my_struct->i = 0;
 	my_struct->sizey = 0;
 	ft_init_2(my_struct);
 }

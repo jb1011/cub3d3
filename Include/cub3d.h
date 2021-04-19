@@ -198,6 +198,7 @@ typedef struct	s_struct_s
 	int			saved;
 	t_sprite	sp;
 	t_coord		*c;
+	int			i;
 }				t_struct_t;
 
 typedef struct	s_check_error_s

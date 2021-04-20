@@ -34,6 +34,11 @@ void	ft_init_my_struct(t_struct_t *my_struct)
 	my_struct->sizex = 0;
 	my_struct->j = 0;
 	my_struct->sizey = 0;
+	my_struct->texture[1].img = 0;
+	my_struct->texture[2].img = 0;
+	my_struct->texture[3].img = 0;
+	my_struct->texture[4].img = 0;
+	my_struct->texture[0].img = 0;
 	ft_init_2(my_struct);
 }
 

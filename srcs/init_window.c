@@ -16,17 +16,17 @@ void	window_init(t_struct_t *s)
 {
 	s->mlx_ptr = mlx_init();
 	mlx_get_screen_size(s->mlx_ptr, &s->sizex, &s->sizey);
-	if (s->width > s->sizex || s->width > 100000)
-		s->width = s->sizex;
-	if (s->height > s->sizey || s->height > 100000)
-		s->height = s->sizey;
+	ft_screen_res(s);
 	if (s->saved == 0)
 		s->win_ptr = mlx_new_window(s->mlx_ptr, s->width, s->height, "Hell");
 	replace_spawn(s);
 	ft_rgbconv(s);
 	init_t_ray(s);
 	init_dir(s);
-	get_text(s);
+	if (get_text(s) == 0)
+		ft_exit2(s);
+	if (get_text2(s) == 0)
+		ft_exit2(s);
 	ft_init_sprite(s);
 	if (s->saved == 0)
 	{
@@ -35,11 +35,8 @@ void	window_init(t_struct_t *s)
 		mlx_loop_hook(s->mlx_ptr, ft_raycaster, s);
 		mlx_loop(s->mlx_ptr);
 	}
-	else
-	{
-		ft_raycaster(s);
-		exit(0);
-	}
+	ft_raycaster(s);
+	exit(0);
 }
 
 void	replace_spawn(t_struct_t *s)

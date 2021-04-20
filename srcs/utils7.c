@@ -47,3 +47,14 @@ int		ft_check_xpm(char *s)
 		return (1);
 	return (0);
 }
+
+void	ft_screen_res(t_struct_t *s)
+{
+	if (s->saved == 0)
+	{
+		if (s->width > s->sizex || s->width > 100000)
+			s->width = s->sizex;
+		if (s->height > s->sizey || s->height > 100000)
+			s->height = s->sizey;
+	}
+}

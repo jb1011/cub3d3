@@ -1,16 +1,16 @@
-R 500 500
+R 600   600
 
-NO ./textures/wood.xpm
-
-SO ./textures/metal.xpm
+NO ./textures/brick.xpm
+SO ./textures/wood.xpm
 
 C 0,55,50
 
-WE ./textures/brick.xpm
-EA ./textures/grass.xpm
+WE ./textures/wood.xpm
+
+EA ./textures/snow_tile.xpm
 F 255,0,0
 
-S ./textures/tonneau.xpm
+S ./textures/Emmanuel_Macron__cropped_.xpm
 
 1111111111111111
 1222200000000001
@@ -19,7 +19,7 @@ S ./textures/tonneau.xpm
 10000000000000011111
 10000000000000000001
 10000000000000011111
-1000000000000001
-1000000000000001
-100W000000000001
+1000002222222201
+1000002222222201
+100E0022222222001
 1111111111111111

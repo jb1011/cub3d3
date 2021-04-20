@@ -295,7 +295,7 @@ void			init_dir(t_struct_t *s);
 void			init_t_ray(t_struct_t *s);
 int				ft_raycaster(t_struct_t *s);
 void			ft_wall(t_struct_t *s);
-void			get_text(t_struct_t *s);
+int				get_text(t_struct_t *s);
 void			ft_raycast_floor(t_struct_t *s);
 void			draw_text(t_struct_t *s, int x, int y);
 void			init_num_text(t_struct_t *s);
@@ -348,5 +348,8 @@ int				ft_commas(char *str);
 void			ft_floor_utils(t_check_error_t *checker);
 int				ft_check_cub(t_struct_t *s);
 int				ft_check_xpm(char *s);
+void			ft_screen_res(t_struct_t *s);
+int				ft_exit1(t_struct_t *s);
+int				get_text2(t_struct_t *s);
 
 #endif

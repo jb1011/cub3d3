@@ -95,7 +95,9 @@ int		main(int argc, char **argv)
 	if (argc > 3 || argc < 2)
 		printf("Error\nwrong number of argument\n");
 	else
+	{
 		ft_main2(&checker, &my_struct, argc, argv);
+	}
 }
 
 void	ft_main2(t_check_error_t *checker, t_struct_t *my_struct,

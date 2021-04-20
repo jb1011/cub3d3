@@ -20,7 +20,7 @@ void	ft_floor_utils(t_check_error_t *checker)
 
 int		ft_check_cub(t_struct_t *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s->doc[i])
@@ -32,5 +32,18 @@ int		ft_check_cub(t_struct_t *s)
 	}
 	else
 		ft_putstr_fd("Error\nfile is not .cub", 0);
+	return (0);
+}
+
+int		ft_check_xpm(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	if (s[i - 1] == 'm' && s[i - 2] == 'p' && s[i - 3] == 'x'
+	&& s[i - 4] == '.')
+		return (1);
 	return (0);
 }

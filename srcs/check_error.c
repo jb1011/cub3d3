@@ -19,17 +19,17 @@ void	ft_check_error(t_struct_t *my_struct, t_check_error_t *checker, int fd)
 
 	while ((ret = get_next_line(fd, &str)) > 0)
 	{
-		if (str[0] == 'R')
+		if (str[0] == 'R' && !checker->r)
 			checker->r = ft_strdup(str);
-		else if (str[0] == 'N' && str[1] == 'O')
+		else if (str[0] == 'N' && str[1] == 'O' && !checker->no)
 			checker->no = ft_strdup(str);
-		else if (str[0] == 'S' && str[1] == 'O')
+		else if ((str[0] == 'S' && str[1] == 'O') && !checker->so)
 			checker->so = ft_strdup(str);
-		else if (str[0] == 'W' && str[1] == 'E')
+		else if (str[0] == 'W' && str[1] == 'E' && !checker->we)
 			checker->we = ft_strdup(str);
-		else if (str[0] == 'E' && str[1] == 'A')
+		else if (str[0] == 'E' && str[1] == 'A' && !checker->ea)
 			checker->ea = ft_strdup(str);
-		else if (str[0] == 'S')
+		else if (str[0] == 'S' && !checker->s)
 			checker->s = ft_strdup(str);
 		check_error_util(str, checker);
 		if (str[0] == '1' || str[0] == ' ')

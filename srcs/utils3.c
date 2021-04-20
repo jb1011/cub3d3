@@ -30,9 +30,9 @@ void	ft_ceiling_util(t_check_error_t *checker)
 
 void	check_error_util(char *str, t_check_error_t *checker)
 {
-	if (str[0] == 'F')
+	if (str[0] == 'F' && !checker->f)
 		checker->f = ft_strdup(str);
-	else if (str[0] == 'C')
+	else if (str[0] == 'C' && !checker->c)
 		checker->c = ft_strdup(str);
 	else if (str[0] == 0)
 		checker->count--;

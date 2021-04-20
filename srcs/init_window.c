@@ -20,7 +20,8 @@ void	window_init(t_struct_t *s)
 		s->width = s->sizex;
 	if (s->height > s->sizey || s->height > 100000)
 		s->height = s->sizey;
-	s->win_ptr = mlx_new_window(s->mlx_ptr, s->width, s->height, "Hell");
+	if (s->saved == 0)
+		s->win_ptr = mlx_new_window(s->mlx_ptr, s->width, s->height, "Hell");
 	replace_spawn(s);
 	ft_rgbconv(s);
 	init_t_ray(s);

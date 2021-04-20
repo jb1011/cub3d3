@@ -347,5 +347,6 @@ int				ft_exit2(t_struct_t *s);
 int				ft_commas(char *str);
 void			ft_floor_utils(t_check_error_t *checker);
 int				ft_check_cub(t_struct_t *s);
+int				ft_check_xpm(char *s);
 
 #endif

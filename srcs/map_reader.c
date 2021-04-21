@@ -35,6 +35,7 @@ void	ft_caller(t_struct_t *my_struct, t_check_error_t *checker)
 	}
 	else
 	{
+		printf("Error\nwith map.cub\n");
 		ft_free_check_error(checker);
 		ft_free_s(my_struct);
 	}

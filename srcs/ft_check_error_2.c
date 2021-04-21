@@ -31,7 +31,7 @@ void	ft_check_path(t_check_error_t *checker, t_struct_t *my_struct)
 		ft_check_path2(checker, my_struct);
 	}
 	else
-		printf("Error\npath missing\n");
+		printf("Error\nwith path\n");
 }
 
 void	ft_check_path1(t_check_error_t *checker, t_struct_t *my_struct)

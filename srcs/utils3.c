@@ -24,7 +24,7 @@ void	ft_ceiling_util(t_check_error_t *checker)
 	if (ft_commas(checker->c) == 0)
 	{
 		checker->result -= 1;
-		printf("Error\ntoo many commas in ceiling\n");
+		printf("Error\nproblem with commas in ceiling\n");
 	}
 }
 

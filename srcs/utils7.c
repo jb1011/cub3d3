@@ -15,7 +15,7 @@
 void	ft_floor_utils(t_check_error_t *checker)
 {
 	checker->result -= 1;
-	printf("Error\ntoo many commas in floor\n");
+	printf("Error\nproblem with commas in floor\n");
 }
 
 int		ft_check_cub(t_struct_t *s)

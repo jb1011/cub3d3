@@ -38,12 +38,12 @@ void	ft_init_my_struct(t_struct_t *my_struct)
 	my_struct->texture[2].img = 0;
 	my_struct->texture[3].img = 0;
 	my_struct->texture[4].img = 0;
-	my_struct->texture[0].img = 0;
 	ft_init_2(my_struct);
 }
 
 void	ft_init_2(t_struct_t *my_struct)
 {
+	my_struct->texture[0].img = 0;
 	my_struct->sp.spriteheight = 0;
 	my_struct->sp.spritescreenx = 0;
 	my_struct->sp.drawstartx = 0;
@@ -67,6 +67,7 @@ void	ft_init_2(t_struct_t *my_struct)
 	my_struct->ea = NULL;
 	my_struct->colortab = 0;
 	my_struct->save = NULL;
+	my_struct->ismap = 0;
 }
 
 void	ft_init_struct_check_error(t_check_error_t *check_error)

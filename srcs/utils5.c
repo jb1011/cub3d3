@@ -27,9 +27,10 @@ void	ft_map_check_right(t_struct_t *my_struct, int i, int j)
 	}
 }
 
-void	map_malloc2(t_struct_t *my_struct, int i, int fd, char *str)
+void	map_malloc2(t_struct_t *my_struct, int i, char *str)
 {
 	int ret;
+	int	fd;
 
 	my_struct->last_columns = i - 1;
 	my_struct->map = malloc(sizeof(char *) * (i + 1));
@@ -52,11 +53,11 @@ void	map_malloc2(t_struct_t *my_struct, int i, int fd, char *str)
 	free(str);
 }
 
-void	ft_map_malloc_3(t_struct_t *my_struct, int i, int fd, char *str)
+void	ft_map_malloc_3(t_struct_t *my_struct, int i, char *str)
 {
 	if (str[0] == '1' || str[0] == ' ' || str[0] == '0' || str[0] == '2')
 		i++;
-	map_malloc2(my_struct, i, fd, str);
+	map_malloc2(my_struct, i, str);
 }
 
 void	ft_dis_order2(t_struct_t *s)

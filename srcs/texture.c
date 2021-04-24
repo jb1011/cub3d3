@@ -53,11 +53,9 @@ int		get_text(t_struct_t *s)
 	if (!(s->texture[2].img = mlx_xpm_file_to_image(s->mlx_ptr, s->we,
 		&(s->texture[2].width), &(s->texture[2].height))))
 	{
-		printf("Error\nproblem with texture 2\n");
 		ft_exit1(s);
 		return (0);
 	}
-	
 	return (1);
 }
 

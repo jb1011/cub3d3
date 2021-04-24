@@ -55,3 +55,18 @@ void	ft_screen_res(t_struct_t *s)
 	if (s->height > s->sizey || s->height > 100000)
 		s->height = s->sizey;
 }
+
+void	ft_reader_malloc(t_struct_t *my_struct, char *str, int i,
+							t_check_map_t *checker)
+{
+	if (my_struct->error == 0 && my_struct->ismap == 1)
+	{
+		ft_map_malloc_3(my_struct, i, str);
+		ft_check_error_map(my_struct, checker);
+	}
+	else
+	{
+		my_struct->error = 1;
+		free(str);
+	}
+}

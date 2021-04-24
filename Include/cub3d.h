@@ -200,6 +200,7 @@ typedef struct	s_struct_s
 	t_coord		*c;
 	int			i;
 	int			j;
+	int			ismap;
 }				t_struct_t;
 
 typedef struct	s_check_error_s
@@ -329,9 +330,8 @@ void			check_validity_2(t_struct_t *my_struct, int i, int j, int res);
 void			check_utilss(t_struct_t *my_struct, int i, int j);
 void			check_free(t_struct_t *my_struct);
 void			ft_put_less(t_struct_t *my_struct, t_check_map_t *map_checker);
-void			map_malloc2(t_struct_t *my_struct, int i, int fd, char *str);
-void			ft_map_malloc_3(t_struct_t *my_struct, int i,
-					int fd, char *str);
+void			map_malloc2(t_struct_t *my_struct, int i, char *str);
+void			ft_map_malloc_3(t_struct_t *my_struct, int i, char *str);
 void			ray1(t_struct_t *s);
 void			ray2(t_struct_t *s);
 void			ray3(t_struct_t *s);
@@ -351,5 +351,7 @@ int				ft_check_xpm(char *s);
 void			ft_screen_res(t_struct_t *s);
 int				ft_exit1(t_struct_t *s);
 int				get_text2(t_struct_t *s);
+void			ft_reader_malloc(t_struct_t *my_struct, char *str, int i,
+							t_check_map_t *checker);
 
 #endif

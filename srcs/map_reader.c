@@ -52,14 +52,17 @@ void	map_reader_check(t_struct_t *my_struct, int fd)
 void	ft_map_malloc(t_struct_t *my_struct, int fd, t_check_map_t *checker)
 {
 	int		i;
-	int		ret;
 	char	*str;
+	int		ret;
 
 	i = 1;
 	while ((ret = get_next_line(fd, &str)) > 0)
 	{
 		if (str[0] == '1' || str[0] == ' ' || str[0] == '0' || str[0] == '2')
+		{
 			i++;
+			my_struct->ismap = 1;
+		}
 		else if (is_map(str[0]) == 0 || str[0] == 0)
 			ft_call_f(my_struct);
 		free(str);
@@ -69,13 +72,7 @@ void	ft_map_malloc(t_struct_t *my_struct, int fd, t_check_map_t *checker)
 		printf("Error\nError in map\n");
 		my_struct->error = 1;
 	}
-	if (my_struct->error == 0)
-	{
-		ft_map_malloc_3(my_struct, i, fd, str);
-		ft_check_error_map(my_struct, checker);
-	}
-	else
-		free(str);
+	ft_reader_malloc(my_struct, str, i, checker);
 }
 
 void	ft_init_check_map(t_check_map_t *map_checker)
